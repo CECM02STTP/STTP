@@ -43,21 +43,24 @@
     </asp:ContentPlaceHolder>
     <!-- ====================================================ContentPlaceHolder End============================================================= -->
 
-    
+
     <style>
         /*登出按鈕*/
-        #Buttonlogout { border:none;
-                        background-color:#fff;
-                        margin-top:-3px;
-                        margin-right:-5px;
+        #Buttonlogout {
+            border: none;
+            background-color: #fff;
+            margin-top: -3px;
+            margin-right: -5px;
         }
-        #Form2 {margin-bottom:0px;
+
+        #Form2 {
+            margin-bottom: 0px;
         }
     </style>
 
 </head>
 <body>
-    
+
     <!-- Navbar
     ================================================== -->
     <div class="navbar navbar-fixed-top">
@@ -82,29 +85,29 @@
                     </ul>
                     <form action="#" class="navbar-search pull-left">
                         <input id="srchFld" type="text" placeholder="搜尋..." class="search-query span5" />
-                        
+
                     </form>
-                    <div style="margin:10px 5px 5px 200px;float:left" id="div1" runat="server">
-                         <asp:Label  ID="UserName" runat="server" Text=""></asp:Label>
-                        </div>
-                     <!-- ====================================================登出登入按鈕 Stat============================================================= -->
-                    <form id="Form2" runat="server" class="form-horizontal loginFrm" >
-                    <ul  id="logout"  runat="server" class="nav pull-right">
-                        <li class="dropdown" style="margin-top:4px" >
-                            <a class="dropdown-toggle">
-                                <%--<form id="Form2">--%>
+                    <div style="margin: 10px 5px 5px 200px; float: left" id="div1" runat="server">
+                        <asp:Label ID="UserName" runat="server" Text=""></asp:Label>
+                    </div>
+                    <!-- ====================================================登出登入按鈕 Stat============================================================= -->
+                    <form id="Form2" runat="server" class="form-horizontal loginFrm">
+                        <ul id="logout" runat="server" class="nav pull-right">
+                            <li class="dropdown" style="margin-top: 4px">
+                                <a class="dropdown-toggle">
+                                    <%--<form id="Form2">--%>
                                     <asp:Button ID="Buttonlogout" runat="server" Text="登出" OnClick="ButtonLogout_Click"></asp:Button>
                                     <%--<asp:linkbutton class="dropdown-toggle"  id="linkbutton1" runat="server" onclick="buttonlogout_click">登出</asp:linkbutton>--%>
-                                <%--</form>--%>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="login" runat="server" class="nav pull-right">
-                        <li class="dropdown" style="margin-top:4px" >
-                            <%--<a data-toggle="dropdown" class="dropdown-toggle" href="#"><asp:Label runat="server" Text="登入 "></asp:Label><b class="caret"></b></a>--%>
-                            <a id="A1" data-toggle="dropdown" class="dropdown-toggle" href="#">登入 </a>
-                            <div class="dropdown-menu">
-                                <%--<form id="Form1" runat="server"  class="form-horizontal loginFrm" >--%>
+                                    <%--</form>--%>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul id="login" runat="server" class="nav pull-right">
+                            <li class="dropdown" style="margin-top: 4px">
+                                <%--<a data-toggle="dropdown" class="dropdown-toggle" href="#"><asp:Label runat="server" Text="登入 "></asp:Label><b class="caret"></b></a>--%>
+                                <a id="A1" data-toggle="dropdown" class="dropdown-toggle" href="#">登入 </a>
+                                <div class="dropdown-menu">
+                                    <%--<form id="Form1" runat="server"  class="form-horizontal loginFrm" >--%>
                                     <div class="control-group">
                                         <asp:TextBox ID="MemberID" class="span2" placeholder="MemberID" runat="server"></asp:TextBox>
                                     </div>
@@ -116,12 +119,12 @@
                                             <asp:CheckBox ID="RememberChkBox" runat="server" />
                                             記住帳號(1天)
                                         </label>
-                                        <asp:Button ID="ButtonLogin" class="btn btn-block" runat="server" Width="170" Text="登入" OnClick="ButtonLogin_Click"/>
-                                    </div> 
-                                <%--</form>--%>
-                            </div>
-                        </li>
-                    </ul>
+                                        <asp:Button ID="ButtonLogin" class="btn btn-block" runat="server" Width="170" Text="登入" OnClick="ButtonLogin_Click" />
+                                    </div>
+                                    <%--</form>--%>
+                                </div>
+                            </li>
+                        </ul>
                     </form>
                     <!-- ====================================================登出登入按鈕 End============================================================= -->
                 </div>
@@ -129,7 +132,7 @@
             </div>
         </div>
         <!-- /navbar-inner -->
-        
+
     </div>
     <!-- ====================================================購物車Start============================================================= -->
     <div id="mainBody" class="container">
@@ -149,23 +152,23 @@
             <div class="clr">
             </div>
         </header>
-        </div>
-        <!-- ==================================================Header End(購物車)====================================================================== -->
+    </div>
+    <!-- ==================================================Header End(購物車)====================================================================== -->
 
 
 
-        <!-- ==================================================ContentPlaceHolder1 Start====================================================================== -->
-        <%--<div>--%>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-        <%-- </div>--%>
-        <div id="Div1" class="container">
+    <!-- ==================================================ContentPlaceHolder1 Start====================================================================== -->
+    <%--<div>--%>
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <%-- </div>--%>
+    <div id="Div1" class="container">
         <!-- ==================================================ContentPlaceHolder1 End====================================================================== -->
 
         <!-- ====================================================商品導覽列 Start============================================================= -->
         <!-- Navbar
     ================================================== -->
-        <div style="padding-left: 260px;margin-top:20px">
+        <div style="padding-left: 260px; margin-top: 20px">
             <div class="lavalamp cyan">
                 <ul>
                     <li class="active"><a href="#">商店街</a></li>
@@ -406,6 +409,7 @@
     </script>
     <script type="text/javascript" src="sliderengine/jquery.js"></script>
     <script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+
 
 </body>
 </html>

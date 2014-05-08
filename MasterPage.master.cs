@@ -9,7 +9,7 @@ public partial class bootsshop_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        //---------------------------登入的程式碼 Start--------------------------------------------------------------------------------        
         if (Request.Cookies["name"] == null)
         {
             logout.Visible = false;
@@ -18,7 +18,9 @@ public partial class bootsshop_MasterPage : System.Web.UI.MasterPage
             UserName.Text = Request.Cookies["name"].Value + ", 歡迎";
             login.Visible = false;
         }
+        //---------------------------登入的程式碼 End---------------------------------------------------------------------------------
     }
+//---------------------------登入的程式碼 Start---------------------------------------------------------------------------------
     String strConn = ConfigurationManager.ConnectionStrings["STTPConnectionString"].ConnectionString;
     protected void ButtonLogin_Click(object sender, EventArgs e)
     {
@@ -61,4 +63,5 @@ public partial class bootsshop_MasterPage : System.Web.UI.MasterPage
         logout.Visible = false;
         login.Visible = true;
     }
+    //---------------------------登入的程式碼 End---------------------------------------------------------------------------------
 }
