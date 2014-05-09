@@ -407,7 +407,7 @@
             $('#gallery a').lightBox();
         });
     </script>
-    <script type="text/javascript" src="sliderengine/jquery.js"></script>
+    <%--<script type="text/javascript" src="sliderengine/jquery.js"></script>--%>
     <script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
 
 
