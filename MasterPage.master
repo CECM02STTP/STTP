@@ -16,10 +16,10 @@
 	 -->
 
     <!-- Le styles  -->
+
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet" />
     <link href="assets/css/docs.css" rel="stylesheet" />
-
     <link href="style.css" rel="stylesheet" />
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet" />
 
@@ -179,36 +179,18 @@
                 <div class="floatr"></div>
 
             </div>
-            <%-- <div class="navbar-inner">
-                <div class="container">
-                    <a id="A1" href="index.aspx">
-                        <a data-target="#sidebar" data-toggle="collapse" class="btn btn-navbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
-                        <div class="nav-collapse">
-                            <ul class="nav">
-
-                                <li class=""><a href="index.aspx">商店街</a></li>
-                                <li class=""><a href="products.aspx">二手交易</a></li>
-                                <li class=""><a href="Accounts.aspx">二手交換</a></li>
-                            </ul>
-
-                        </div>
-                        <!-- /.nav-collapse -->
-                </div>
-            </div>--%>
-            <!-- /navbar-inner -->
+          
         </div>
 
         <div class="clr"></div>
         <!-- ====================================================商品導覽列 End============================================================= -->
 
+        <div class="row">
+            <div class="span3" >
         <!-- =================================================側邊欄位 Start====================================================================== -->
 
-        <div class="row">
-            <div id="sidebar" class="span3">
+                <asp:ContentPlaceHolder ID="AsidePlaceHolder" runat="server">
+                    <div id="sidebar" ">
                 <ul class="nav nav-list bs-docs-sidenav" style="display: block;">
                     <li class="subMenu"><a>書 [250]</a>
                         <ul>
@@ -326,66 +308,161 @@
                     </li>
                 </ul>
             </div>
-            <!-- =================================================側邊欄位 End====================================================================== -->
-
-            <!-- =================================================ContentPlaceHolder2 Start====================================================================== -->
-            <div>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    
                 </asp:ContentPlaceHolder>
+        <!-- =================================================側邊欄位 End====================================================================== -->
+
             </div>
 
-            <!-- =================================================ContentPlaceHolder2 End====================================================================== -->
+<%--            ===================================================主要內容起始點=========================================--%>
+            <div class="span9">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+<%--            =====================================================主要內容結束點============================================--%>
+              </div>
+            
+      
+            <%--<div id="sidebar" class="span3">
+                <ul class="nav nav-list bs-docs-sidenav" style="display: block;">
+                    <li class="subMenu"><a>書 [250]</a>
+                        <ul>
+                            <li><a class="active" href="products.aspx">教科書 (80)</a></li>
+                            <li><a href="products.aspx">參考書 (50)</a></li>
+                            <li><a href="products.aspx">考試用書 (60)</a></li>
+                            <li><a href="products.aspx">一般書籍 (30)</a></li>
+                            <li><a href="products.aspx">雜誌 (20)</a></li>
+                            <li><a href="products.aspx">其他 (10)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a>自行車 [130] </a>
+                        <ul>
+                            <li><a href="products.aspx">折疊式自行車 (25)</a></li>
+                            <li><a href="products.aspx">城市代步車 (30)</a></li>
+                            <li><a href="products.aspx">淑女車 (20)</a></li>
+                            <li><a href="products.aspx">運動競賽車 (15)</a></li>
+                            <li><a href="products.aspx">自行車用品 (30)</a></li>
+                            <li><a href="products.aspx">其他 (10)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a>3C電子用品 [210]</a>
+                        <ul>
+                            <li><a href="products.aspx">電腦 (60)</a></li>
+                            <li><a href="products.aspx">電腦周邊 (40)</a></li>
+                            <li><a href="products.aspx">手機 (45)</a></li>
+                            <li><a href="products.aspx">相機 (35)</a></li>
+                            <li><a href="products.aspx">影音/遊戲 (25)</a></li>
+                            <li><a href="products.aspx">其他 (5)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a href="products.aspx">家電 [80]</a>
+                        <ul>
+                            <li><a href="products.aspx">檯燈 (25)</a></li>
+                            <li><a href="products.aspx">吹風機 (15)</a></li>
+                            <li><a href="products.aspx">熱水壺 (10)</a></li>
+                            <li><a href="products.aspx">電鍋/冰箱 (8)</a></li>
+                            <li><a href="products.aspx">捕蚊燈 (8)</a></li>
+                            <li><a href="products.aspx">其他 (14)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a href="products.aspx">日用品 [180]</a>
+                        <ul>
+                            <li><a href="products.aspx">衣架/夾/藍 (45)</a></li>
+                            <li><a href="products.aspx">容器(杯/盤/盆) (40)</a></li>
+                            <li><a href="products.aspx">廚房用品 (25)</a></li>
+                            <li><a href="products.aspx">清潔用品 (20)</a></li>
+                            <li><a href="products.aspx">衛生保健用品 (35)</a></li>
+                            <li><a href="products.aspx">其他 (15)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a href="products.aspx">家具 [110]</a>
+                        <ul>
+                            <li><a href="products.aspx">鞋架 (20)</a></li>
+                            <li><a href="products.aspx">衣櫃 (25)</a></li>
+                            <li><a href="products.aspx">書櫃/架 (35)</a></li>
+                            <li><a href="products.aspx">桌椅 (10)</a></li>
+                            <li><a href="products.aspx">寢具 (5)</a></li>
+                            <li><a href="products.aspx">其他 (15)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a href="products.aspx">運動用品 [125]</a>
+                        <ul>
+                            <li><a href="products.aspx">球類 (30)</a></li>
+                            <li><a href="products.aspx">非球類 (20)</a></li>
+                            <li><a href="products.aspx">運動服飾/鞋 (15)</a></li>
+                            <li><a href="products.aspx">運動護具 (20)</a></li>
+                            <li><a href="products.aspx">運動配件 (25)</a></li>
+                            <li><a href="products.aspx">其他 (15)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a href="products.aspx">服務 [70]</a>
+                        <ul>
+                            <li><a href="products.aspx">居家服務 (12)</a></li>
+                            <li><a href="products.aspx">運輸服務 (8)</a></li>
+                            <li><a href="products.aspx">課業諮詢/家教 (14)</a></li>
+                            <li><a href="products.aspx">代購服務 (6)</a></li>
+                            <li><a href="products.aspx">跑腿服務 (25)</a></li>
+                            <li><a href="products.aspx">其他 (5)</a></li>
+                        </ul>
+                    </li>
+                    <li class="subMenu"><a href="products.aspx">其他 [80]</a>
+                        <ul>
+                            <li><a href="products.aspx">服飾/配件/鞋 (30)</a></li>
+                            <li><a href="products.aspx">玩具/公仔 (15)</a></li>
+                            <li><a href="products.aspx">明星/偶像 (10)</a></li>
+                            <li><a href="products.aspx">休閒票券 (15)</a></li>
+                            <li><a href="products.aspx">食品 (5)</a></li>
+                            <li><a href="products.aspx">其他 (5)</a></li>
+                        </ul>
+                    </li>
+                    <li style="border: 0">&nbsp;</li>
+                    <li><a href="product_summary.aspx"><strong>3項商品在您的購物車中<span class="badge badge-warning pull-right" style="line-height: 18px;">$975.00</span></strong></a></li>
+                    <li style="border: 0">&nbsp;</li>
+                    <li>
+                        <div class="thumbnail">
+                            <img src="assets/products/螢幕.jpg" alt="">
+                            <div class="caption">
+                                <h5>護目LCD螢幕</h5>
+                                <p>不閃屏、低藍光</p>
+                                <h4><a class="btn" href="product_details.aspx">檢視</a> <span class="pull-right">$999.00</span></h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="border: 0">&nbsp;</li>
+                    <li class="last">
+                        <div class="thumbnail">
+                            <img src="assets/products/多層格.jpg" alt="">
+                            <div class="caption">
+                                <h5>多層格架</h5>
+                                <p>全新多層架商品</p>
+                                <h4><a class="btn" href="product_details.aspx">檢視</a> <span class="pull-right">$999.00</span></h4>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>--%>
+            <!-- =================================================側邊欄位 End====================================================================== -->
+
 
             <!-- Footer ------------------------------------------------------ -->
             <hr class="soft">
-            <!--<div  id="footerSection">
-	<div class="row">
-		<div class="span3">
-			<h5>ACCOUNT</h6>
-			<a href="login.html">YOUR ACCOUNT</a>
-			<a href="login.html">PERSONAL INFORMATION</a> 
-			<a href="login.html">ADDRESSES</a> 
-			<a href="login.html">DISCOUNT</a>  
-			<a href="login.html">ORDER HISTORY</a>
-		 </div>
-		<div class="span3">
-			<h5>INFORMATION</h5>
-			<a href="contact.html">CONTACT</a>  
-			<a href="register.html">REGISTRATION</a>  
-			<a href="legal_notice.html">LEGAL NOTICE</a>  
-			<a href="tac.html">TERMS AND CONDITIONS</a> 
-			<a href="faq.html">FAQ</a>
-		 </div>
-		<div class="span3">
-			<h5>OUR OFFERS</h5>
-			<a href="#">NEW PRODUCTS</a> 
-			<a href="#">TOP SELLERS</a>  
-			<a href="special_offer.html">SPECIAL OFFERS</a>  
-			<a href="#">MANUFACTURERS</a> 
-			<a href="#">SUPPLIERS</a> 
-		 </div>-->
             <div id="socialMedia" class="span3 pull-right">
-                <!--<h5>SOCIAL MEDIA </h5>
-			<a href="#"><img width="60" src="assets/img/facebook.png" title="facebook"/></a>
-			<a href="#"><img width="60" src="assets/img/twitter.png" title="twitter"/></a>
-			<a href="#"><img width="60" src="assets/img/rss.png" title="rss"/></a>
-			<a href="#"><img width="60" src="assets/img/youtube.png" title="youtube"/></a>
-		 </div> 
-	 </div>-->
                 <hr class="soft">
                 <p class="pull-right">&copy; STTP shop</p>
 
             </div>
-        </div>
+       <%-- </div>--%>
     </div>
     <!-- /container -->
 
 
 
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="assets/js/jquery.js"></script>
+        <script type="text/javascript" src="sliderengine/jquery.js"></script>
+<%--    <script src="assets/js/jquery.js"></script>--%>
     <script src="assets/js/google-code-prettify/prettify.js"></script>
-    <script src="assets/js/application.js"></script>
+<%--    <script src="assets/js/application.js"></script>--%><%--不知道作用 而且會造成MENU無法控制--%>
     <script src="assets/js/bootstrap-transition.js"></script>
     <script src="assets/js/bootstrap-modal.js"></script>
     <script src="assets/js/bootstrap-scrollspy.js"></script>
@@ -407,9 +484,11 @@
             $('#gallery a').lightBox();
         });
     </script>
-    <%--<script type="text/javascript" src="sliderengine/jquery.js"></script>--%>
+
     <script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
-
-
+<!-- =================================================script程式 Star====================================================================== -->
+      <asp:ContentPlaceHolder ID="scriptPlaceHolder" runat="server">
+      </asp:ContentPlaceHolder>
+<!-- =================================================script程式 End====================================================================== -->
 </body>
 </html>
