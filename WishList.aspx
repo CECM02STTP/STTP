@@ -88,30 +88,30 @@
             <div class="ap_left"></div>
             <div class="ap_content" style="padding-left: 17px; padding-right: 17px; padding-bottom: 8px;">
                 <span id="editThisListContent" style="display: inline;" class="wlNoUnderline">
-                    <div class="wl-popover-header">管理该心愿单</div>
+                    <div class="wl-popover-header">管理該心願單</div>
 
 
 
 
 
                     <div id="listAction-edit" class="wlMenuItem">
-                        <a href="https://www.amazon.cn/registry/wishlist/2XOZ0I5G30KB8/settings.html/ref=cm_wl_act_settings">修改相关设置</a>
+                        <a href="https://www.amazon.cn/registry/wishlist/2XOZ0I5G30KB8/settings.html/ref=cm_wl_act_settings">修改相關設置</a>
                     </div>
                     <div id="listAction-editName" class="wlMenuItem ap_custom_close">
                         <a href="#">
-                            <nobr>编辑心愿单名称...</nobr>
+                            <span>編輯心願單名稱...</span>
                         </a>
                     </div>
 
                     <div id="listAction-editPrivacy" class="wlMenuItem ap_custom_close">
                         <a href="#">
-                            <nobr>更改保密设置...</nobr>
+                            <span>更改保密設置...</span>
                         </a>
                     </div>
 
 
                     <div id="listAction-delete" class="wlMenuItem">
-                        <a href="https://www.amazon.cn/gp/registry/delete.html/ref=cm_wl_act_del?ie=UTF8&amp;id=2XOZ0I5G30KB8">删除该心愿单</a>
+                        <a href="https://www.amazon.cn/gp/registry/delete.html/ref=cm_wl_act_del?ie=UTF8&amp;id=2XOZ0I5G30KB8">刪除該心願單</a>
                     </div>
 
 
@@ -134,7 +134,14 @@
    <%--===========================================================心願單TOP 起點================================================--%>
 
     <div>
-  <h3>心願單名稱</h3>
+        <div class="TableSearch">
+            <label for="wishlistSearch">查找他人的心願單</label>
+            <input placeholder="輸入姓名或電子郵件" name="field-name" id="wishlistSearch" type="text" size="15" />
+            <input class="go" type="image"  src="/website4/images/go.gif" />
+        </div>
+
+ <span id="wishName"  contenteditable="true">心願單名稱</span>
+        <span id="listTitleHoverLink" style="display: none;">點擊編輯心願單名稱</span>
         <div id="privacyMessage">
        
       <span style="display: none" id="privacyMessagePrivateTxt">只有你能看到該心願單。</span>
@@ -142,14 +149,117 @@
       <span style="display: none" id="privacyMessageUnlistedTxt">任何人都可以看到該心願單。</span>
             <span id="editPrivacyLink" class="btn btn-small btn-link" >更改设置</span>
         |   <span id="previewLink" class="btn btn-small btn-link" >預覽心願單</span>
+
+
     </div>
         <div>
-            <span id="editThisList" class="btn btn-small btn-link" >管理該心願單</span>
-      
+            <span id="editThisList" class="btn btn-small btn-link" ><i class="icon-align-justify"></i>管理該心願單</span>
+             <span id="Span1" class="btn btn-small btn-link" ><i class="icon-envelope"></i>與朋友分享</span>
+
         </div>
    </div>
   
    <%--===========================================================心願單TOP 結束點================================================--%>
+
+<%--    =========================================搜尋條件==================================== --%>
+
+    		<div class="sortbarTopAnimate"></div>
+
+       <table class="TableSearch">
+	<tbody><tr  valign="top">
+		<td class="sortbarText "><label for="revealDropdown">顯示</label>
+</td>
+		<%--<td class="sortbarText productToggle"><label for="productGroupDropdown">類別</label>
+</td>--%>
+		<td class="sortbarText sortToggle"><label for="sortDropdown">排序</label>
+</td>
+		<%--<td colspan="2" class="sortbarText viewToggle"><label for="viewDropdown">檢視方式</label>
+</td>--%>
+</tr>
+	<tr valign="top">
+		<td><select name="reveal" id="revealDropdown" class="sortbarText"><option value="unpurchased" selected="selected">未購買</option>
+<option value="purchased">以購買</option>
+<option value="all">全部</option>
+</select>
+</td>
+		<%--<td><select name="filter" id="productGroupDropdown" class="sortbarText productToggle"><option value="all">所有商品</option>
+<option value="price-drop">查看降价商品</option>
+<option value="siS3KOCF20NRF09A">所有Amazon.cn商品</option>
+<option value="sxS3KOCF20NRF09A">广泛的商品</option>
+<option value="wfa">觀念</option>
+<option value="3">图书</option>
+<option value="31">玩具</option>
+</select>
+</td>--%>
+		<td><select name="sort" id="sortDropdown" class="sortbarText sortToggle"><option value="universal-title">产品名称</option>
+<option value="universal-price">价格（从低到高）</option>
+<option value="universal-price-desc">价格（从高到低）</option>
+<option value="date-added" selected="yes">增添商品日期</option>
+<option value="last-updated">最后更新</option>
+<option value="priority">优先级（由高到低）</option>
+</select>
+</td>
+		<%--<td><select name="layout" id="viewDropdown" class="sortbarText viewToggle"><option value="standard" selected="yes">标准</option>
+<option value="compact">紧凑</option>
+</select>
+</td>--%>
+        <td class="go">
+            <input type="image"  src="/website4/images/go.gif" />
+        </td>
+	
+</tr>
+      
+</tbody></table>
+
+    <div style="clear:both"></div>
+  
+<%--    =========================================搜尋條件==================================== --%>
+    <div class="row">
+      <div class="span2">
+        <a href="#" class="thumbnail">
+            <img src="/website4/images/iwant.png" alt=""/> 
+        </a>
+      </div>
+      <div class="span3"  > 
+              <div style="padding-bottom:10px"><strong>先記一下，稍後購買</strong></div>  
+        <input type="text"  style="width:250px" />
+        
+
+       <button class="btn btn-mini btn-info">添加至心願單</button>
+          
+          
+      </div>
+              <div class="span2"> 
+          <img src="http://g-ec4.images-amazon.com/images/G/28/gifts/registries/wishlist/helperborder._V401956180_.png" width="10" alt="" style="padding-right:7px; height:90px; width: 10px;" height="113" border="0" />
+              <span class="wfaHelpExamplesText">添加想購買的商品</span>
+              </div>
+
+    </div>
+    <hr />
+
+    <div class="row">
+      <div class="span2">
+        <a href="#" class="thumbnail">
+            <img src="/website4/images/iwant.png" alt=""/> 
+        </a>
+      </div>
+      <div class="span5 keyword"  > 
+              <div style="padding-bottom:10px"><strong>觀念關鍵字</strong></div>  
+        
+
+            <button class="btn btn-mini btn-warning">搜尋結果</button>
+          | <a href="#" ><span class="label label-info" >移动到另一心愿单</span></a>
+          | <a href="#" ><span class="label label-info" >移除</span></a> 
+          
+
+      </div>
+        <div class="span2">
+           <div class="textLink"> <a class="btn btn-small btn-link">编辑評論、數量、優先級</a></div>
+       
+        </div>
+
+    </div>
+    <hr />
 
     <div class="row">
       <div class="span2">
@@ -162,22 +272,18 @@
           <div><span>BY品牌</span></div>
            <div><span>價錢</span></div>
             <div><span>賣家</span></div>
-<%--       <button class="btn btn-mini btn-warning">加入購物車</button>
           
             <a href="#" ><span class="label label-info" >移动到另一心愿单</span></a> |   <a href="#" ><span class="label label-info" >移除</span></a> --%>
-<%--            <a class="btn" href="#">移動到另一心願單</a></p>--%>
-   <%--       <a href="#" class="btn btn-large btn-primary disabled">移動到另一心願單</a>--%>
 
       </div>
         <div class="span2">
-        <%--  添加日期：2014年5月12日--%>
-<%--            <a class="btn  btn-link">编辑评论、数量、优先级</a>--%>
-           <div> <a class="btn btn-small btn-link">编辑评论、数量、优先级</a></div>
+           <div class="textLink"> <a class="btn btn-small btn-link">编辑評論、數量、優先級</a></div>
        
         </div>
     </div>
+
     <div class="row">
-      <div class="span8">
+      <div class="span9">
      
         <p>
       <%--    <i class="icon-user"></i> by <a href="#">品牌</a> --%>
@@ -199,7 +305,7 @@
     </div>
 <%--  </div>
 </div>--%>
-<hr>
+<hr/>
 
 <div class="row">
   <div class="span8">
@@ -276,80 +382,201 @@
     </div>
   </div>
 </div>
-<hr>
-<%--<div id="WishName">
-    <h1>心願單名稱</h1>
-    <br />
+<hr/>
 
+<%--    =========================================編輯評論 起點==============================--%>
+    <div id="divComment" class="ap_popover ap_popover_sprited" surround="6,16,18,16" tabindex="0" style="display:none; left: 702px; top: 274.5px; z-index: 200; position: absolute; width: 400px;">
+        <div class="ap_header">
+            <div class="ap_left"></div>
+            <div class="ap_middle"></div>
+            <div class="ap_right"></div>
+        </div>
+        <div class="ap_body">
+            <div class="ap_left"></div>
+            <div class="ap_content" style="padding: 18px 17px 8px;">
+                <div id="addnotespopover">
+                    <table class="notesInlineAlert message mini warning" style="display: none">
+                        <tbody>
+                            <tr>
+                                <td valign="top" style="padding-right: 10px;">
+                                    <span class="swSprite s_alertSm" style="padding: 0px; width: 17px; height: 17px;"></span>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
 
+                    <div style="padding-top: 5px; padding-bottom: 5px;">
+                        <span>
+                            <div style="float: left;" class="popimg">
+                                <img src="http://g-ec4.images-amazon.com/images/G/28/gifts/registries/wishlist/note01._SL72_V391057560_.png" width="36" alt="商品图片" height="35" border="0"><img src="http://g-ec4.images-amazon.com/images/G/28/x-locale/common/transparent-pixel._V386947693_.gif" vspace="0" width="36" hspace="0" alt="" height="35" border="0"></div>
+                        </span>
+                        <span>
+                            <div style="font-weight: bold; font-size: 11px;" class="poptitle peekabooFixHeight">123</div>
+                            <div class="popbyline peekabooFixHeight"></div>
+                        </span>
+                    </div>
+                    
+                    
 
-</div>
-<table>
-    <tbody>
-        <tr>
-            <td>圖片</td>
-            <td><div>
-                123
-                </div></td>
-        </tr>
-    </tbody>
+                    <div style="padding-top: 5px; clear: left;">
+                        <div style="padding-bottom: 5px;">
+                            <div style="text-align: left; float: left; font-weight: bold;">
+                                <label class="labelcomments" for="textareaitemComment.I1I4CB7MLPPVRJ">評論</label>
+                            </div>
+                            <div class="microGrey" style="text-align: right;">(不超過100字) </div>
+                        </div>
+                        <div>
+                            <textarea class="popcomments" rows="4" cols="38" name="itemComment.I1I4CB7MLPPVRJ" id="textareaitemComment.I1I4CB7MLPPVRJ" style="width: 328px;"></textarea>
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr class="noteFieldNoError desiredField">
+                                    <td style="padding-top: 7px; padding-bottom: 5px; font-weight: bold; text-align: right;">
+                                        <label for="labelrequestedQty.I1I4CB7MLPPVRJ">希望得到的数量：</label>
+                                    </td>
+                                    <td style="padding-left: 5px; align: left;">
+                                        <input type="text" size="3" class="tiny popqty" value="1" name="requestedQty.I1I4CB7MLPPVRJ" id="labelrequestedQty.I1I4CB7MLPPVRJ">
+                                    </td>
+                                </tr>
+                                <tr class="noteFieldNoError purchasedField">
+                                    <td style="font-weight: bold; text-align: right;">
+                                        <label for="labelpurchasedQty:0.I1I4CB7MLPPVRJ">已接受商品数量：</label>
+                                    </td>
+                                    <td style="padding-left: 5px; align: left;">
+                                        <input type="text" size="3" class="tiny popPurchasedQty" value="0" name="purchasedQty:0.I1I4CB7MLPPVRJ" id="labelpurchasedQty:0.I1I4CB7MLPPVRJ">
+                                    </td>
+                                </tr>
+                                <tr class="priorityField">
+                                    <td style="font-weight: bold; text-align: right;">
+                                        <label for="labelpriority.I1I4CB7MLPPVRJ">優先級：</label>
+                                    </td>
+                                    <td style="padding-left: 5px; align: left;">
+                                        <select class="tiny popPriority" name="priority.I1I4CB7MLPPVRJ"  id="labelpriority.I1I4CB7MLPPVRJ">
+                                            <option value="2">高</option>
+                                            <option selected="selected" value="1">中级</option>
+                                            <option value="0">低</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="padding-bottom: 20px; padding-top: 10px;">
+                         <button id="Button1" class="btn btn-mini btn-warning" type="button">保存</button>
+                        <button id="Button2" class="btn btn-mini" type="button">取消</button>
+                    </div>
+                </div>
+            </div>
+            <div class="ap_right"></div>
+        </div>
+        <div class="ap_footer">
+            <div class="ap_left"></div>
+            <div class="ap_middle"></div>
+            <div class="ap_right"></div>
+        </div>
+        <div class="ap_titlebar" style="width: 364px; cursor: move; display: block;">
+            <div class="ap_title" style="width: 330px;">編輯評論、數量、優先級</div>
+        </div>
+        <div class="ap_close" style="cursor: default;"><a href="#"><span class="ap_closetext" style="display: inline;">關閉</span><span class="ap_closebutton"><span></span></span></a></div>
+    </div>
+<%--    =========================================編輯評論 結束點==============================--%>
 
-</table>--%>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="AsidePlaceHolder" Runat="Server">
 
-<%--<div class="span3" >--%>
-<%--	<div class="row-fluid">--%>
         <div class="span2" >
 		    <img src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm" class="img-circle">
         </div>
         
         <div class="span3">
-            <h4>User Name</h4>
-            <h6>Email: MyEmail@servidor.com</h6>
-            <h6>Ubication: Colombia</h6>
-            <h6>Old: 1 Year</h6>
-            <h6><a href="#">More... </a></h6>
-            <h4>你的全部心愿单</h4>
+            <h4>使用者名稱</h4>
+            <h6>電子郵件:tuhongze@gmail.com</h6>
+            <h6>送到：
+添加送貨地址</h6>
+            <h6>生日</h6>
+            <h6>關於我</h6>
+          
+                 
         </div>
-        
+      
         <div class="span2">
+ <button class="btn btn-success " type="button">新建心願單</button>
+               <hr />
             <div class="btn-group">
                 <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                    Action 
-                    <span class="icon-cog icon-white"></span><span class="caret"></span>
+                    你的心願單 
+                    <span class="icon-heart icon-white"></span><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                    <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+                    <li><a href="#"><span class="icon-gift"></span>新建一</a></li>
+                    <li><a href="#"><span class="icon-gift"></span> 新建二</a></li>
                 </ul>
             </div>
+            <hr />
+            <div><span>朋友和家人的心願單</span></div>
+
         </div>
-<%--</div>--%>
-<%--</div>--%>
 
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="scriptPlaceHolder" Runat="Server">
     <script>
         $('.ap_closetext').click(function () {
-            $('.ap_popover').css("display","none");
+            $(this).parents('.ap_popover').css("display", "none");
         });
-        $('#editThisList').hover(function () {
+        $('.ap_closebutton').click(function () {
+            $(this).parents('.ap_popover').css("display", "none");
+        });
+       
+        //管理該心願單
+        $('#editThisList').mouseover(function () {
     
             $('#divThisListContent').css("display", "inline");
             $('#divThisListContent').css("left", this.offsetLeft-21);
             $('#divThisListContent').css("top", this.offsetTop-21);
         });
-
+        //更改設置
         $('#editPrivacyLink').click(function () {
-            $('#divPrivacyLink').css("display", "inline");
+            if ($('#divPrivacyLink').css("display") == "none") {
+                $('#divPrivacyLink').css("display", "inline");
+            } else
+            {
+                $('#divPrivacyLink').css("display", "none");
+
+            }
+            $('#divPrivacyLink').css("left", this.offsetLeft );
+            $('#divPrivacyLink').css("top", this.offsetTop+15);
         });
         $('#divThisListContent').mouseleave(function () {
             $('#divThisListContent').css("display", "none");
 
         });
+        //編輯評論、數量
+        $('.textLink>a').click(function () {
+          
+            if ($('#divComment').css("display") == "none") {
+                $('#divComment').css("display", "inline");
+            } else {
+                $('#divComment').css("display", "none");
+
+            }
+            $('#divComment').css("left", this.offsetLeft-380);
+            $('#divComment').css("top", this.offsetTop-200 );
+        });
+
+        $('#wishName').hover(function () {
+            $('#listTitleHoverLink').css("display", "inline");
+        }, function () {
+            $('#listTitleHoverLink').css("display", "none");
+
+        }).blur(function () {
+            $('#listTitleHoverLink').html("以保存");
+        });
+      
+
+
     </script>
 
 </asp:Content>
