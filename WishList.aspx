@@ -264,7 +264,7 @@
     <div class="row">
       <div class="span2">
         <a href="#" class="thumbnail">
-            <img src="/WebSite4/ashx/ProductCartHandler.ashx?ID=2015" alt=""/> 
+            <img src="<%=Page.ResolveUrl("~")%>ashx/ProductCartHandler.ashx?ID=3" alt=""/> 
         </a>
       </div>
       <div class="span5">      
@@ -299,7 +299,7 @@
     <div class="row">
       <div class="span2">
         <a href="#" class="thumbnail">
-            <img src="/WebSite4/ashx/ProductCartHandler.ashx?ID=2015" alt=""/> 
+            <img src="<%=Page.ResolveUrl("~")%>ashx/ProductCartHandler.ashx?ID=2" alt=""/> 
         </a>
       </div>
       <div class="span5">      
