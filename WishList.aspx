@@ -272,116 +272,62 @@
           <div><span>BY品牌</span></div>
            <div><span>價錢</span></div>
             <div><span>賣家</span></div>
-          
-            <a href="#" ><span class="label label-info" >移动到另一心愿单</span></a> |   <a href="#" ><span class="label label-info" >移除</span></a> --%>
-
+   
       </div>
         <div class="span2">
            <div class="textLink"> <a class="btn btn-small btn-link">编辑評論、數量、優先級</a></div>
        
         </div>
-    </div>
 
-    <div class="row">
-      <div class="span9">
+        <div class="span9">
      
         <p>
-      <%--    <i class="icon-user"></i> by <a href="#">品牌</a> --%>
           | <i class="icon-calendar"></i> 添加日期：2014年5月12日
           | <button class="btn btn-mini btn-warning">加入購物車</button>
           | <a href="#" ><span class="label label-info" >移动到另一心愿单</span></a>
           | <a href="#" ><span class="label label-info" >移除</span></a> 
-<%--                      | <a href="#" class="btn btn-small btn-link">移动到另一心愿单</a>
-                   | <a href="#" class="btn btn-small btn-link">移除</a>--%>
-          | <a href="#" class="btn btn-small btn-link">编辑评论、数量、优先级</a>
-      <%--    | <i class="icon-comment"></i> <a href="#">3 Comments</a>--%>
     
-       <%--   | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a> 
-          <a href="#"><span class="label label-info">Bootstrap</span></a> 
-          <a href="#"><span class="label label-info">UI</span></a> 
-          <a href="#"><span class="label label-info">growth</span></a>--%>
         </p>
       </div>
     </div>
-<%--  </div>
-</div>--%>
+
+   
+      
+   
 <hr/>
 
-<div class="row">
-  <div class="span8">
-    <div class="row">
-      <div class="span8">
-        <h4><strong><a href="#">Title of the post</a></strong></h4>
-      </div>
-    </div>
     <div class="row">
       <div class="span2">
         <a href="#" class="thumbnail">
-            <img src="http://placehold.it/260x180" alt="">
+            <img src="/WebSite4/ashx/ProductCartHandler.ashx?ID=2015" alt=""/> 
         </a>
       </div>
-      <div class="span6">      
-        <p>
-          Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-        </p>
+      <div class="span5">      
+        <h4><strong><a href="#">商品名稱</a></strong></h4>
+          <div><span>BY品牌</span></div>
+           <div><span>價錢</span></div>
+            <div><span>賣家</span></div>
+   
       </div>
-    </div>
-    <div class="row">
-      <div class="span8">
-        <p></p>
-        <p>
-          <i class="icon-user"></i> by <a href="#">Mark</a> 
-          | <i class="icon-calendar"></i> Sept 16th, 2012
-          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
-          | <i class="icon-share"></i> <a href="#">39 Shares</a>
-          | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a> 
-          <a href="#"><span class="label label-info">Bootstrap</span></a> 
-          <a href="#"><span class="label label-info">UI</span></a> 
-          <a href="#"><span class="label label-info">growth</span></a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<hr>
+        <div class="span2">
+           <div class="textLink"> <a class="btn btn-small btn-link">编辑評論、數量、優先級</a></div>
+       
+        </div>
 
-<div class="row">
-  <div class="span8">
-    <div class="row">
-      <div class="span8">
-        <h4><strong><a href="#">Title of the post</a></strong></h4>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span2">
-        <a href="#" class="thumbnail">
-            <img src="http://placehold.it/260x180" alt=""/>
-        </a>
-      </div>
-      <div class="span6">      
+        <div class="span9">
+     
         <p>
-          Lorem ipsum dolor sit amet, id nec conceptam conclusionemque. Et eam tation option. Utinam salutatus ex eum. Ne mea dicit tibique facilisi, ea mei omittam explicari conclusionemque, ad nobis propriae quaerendum sea.
-        </p>
-        <p><a href="#">Read more</a></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span8">
-        <p></p>
-        <p>
-          <i class="icon-user"></i> by <a href="#">Mark</a> 
-          | <i class="icon-calendar"></i> Sept 16th, 2012
-          | <i class="icon-comment"></i> <a href="#">3 Comments</a>
-          | <i class="icon-share"></i> <a href="#">39 Shares</a>
-          | <i class="icon-tags"></i> Tags : <a href="#"><span class="label label-info">Snipp</span></a> 
-          <a href="#"><span class="label label-info">Bootstrap</span></a> 
-          <a href="#"><span class="label label-info">UI</span></a> 
-          <a href="#"><span class="label label-info">growth</span></a>
+          | <i class="icon-calendar"></i> 添加日期：2014年5月12日
+          | <button class="btn btn-mini btn-warning">加入購物車</button>
+          | <a href="#" ><span class="label label-info" >移动到另一心愿单</span></a>
+          | <a href="#" ><span class="label label-info" >移除</span></a> 
+    
         </p>
       </div>
     </div>
-  </div>
-</div>
+
+
+
 <hr/>
 
 <%--    =========================================編輯評論 起點==============================--%>
@@ -518,7 +464,7 @@
             <div><span>朋友和家人的心願單</span></div>
 
         </div>
-
+   
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="scriptPlaceHolder" Runat="Server">
@@ -575,6 +521,8 @@
             $('#listTitleHoverLink').html("以保存");
         });
       
+      
+
 
 
     </script>
