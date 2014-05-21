@@ -497,8 +497,10 @@
     </script>
 
     <script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
+    <script src="Scripts/ShoppingCart.js"></script>
 <!-- =================================================script程式 Star====================================================================== -->
       <asp:ContentPlaceHolder ID="scriptPlaceHolder" runat="server">
+              
       </asp:ContentPlaceHolder>
 <!-- =================================================script程式 End====================================================================== -->
 </body>
