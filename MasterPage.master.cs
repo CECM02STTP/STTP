@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Linq;
 public partial class bootsshop_MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -64,4 +65,12 @@ public partial class bootsshop_MasterPage : System.Web.UI.MasterPage
         login.Visible = true;
     }
     //---------------------------登入的程式碼 End---------------------------------------------------------------------------------
+
+    //---------------------------全搜尋程式碼---------------------------
+    protected void srchAllBtn_Click(object sender, EventArgs e)  
+    {
+        string title = this.srchAllFld.Text;
+        Server.Transfer("Search.aspx?title=" + title);
+    }
+
 }
