@@ -3,8 +3,6 @@ $('#addCart').click(function () {
     var a = Math.floor(Math.random() * 12 + 1);  //隨機取1~10 當作測試的ProductID
     var productID = a;
     var productcount = $('#pCount').val();
-    //document.cookie = 'productID=' + productID;
-    //document.cookie = "productcount=" + productcount;
 
     CookieCount();
     setCookie("productID" + getCookie("cookiecount"), productID)  //紀錄加入購物車的商品ProductID
@@ -14,14 +12,13 @@ $('#addCart').click(function () {
 function CookieCount() {  //購物商品項目count+1
 
     if (getCookie("cookiecount") == null) {
-        //if (isNaN(getCookie("cookiecount"))) {
         setCookie("cookiecount", 0)
-        alert(getCookie("cookiecount"))
+        alert("加入購物車成功")
     }
     else {
         var c = parseInt(getCookie("cookiecount")) + 1
         setCookie("cookiecount", c)
-        alert(getCookie("cookiecount"))
+        alert("加入購物車成功")
     }
 
 }
