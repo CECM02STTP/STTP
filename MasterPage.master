@@ -170,9 +170,9 @@
         <div style="padding-left: 260px; margin-top: 20px">
             <div class="lavalamp cyan">
                 <ul>
-                    <li class="active"><a href="#">二手交易</a></li>
+                    <li class="active"><a href="#">商店街</a></li>
+                    <li><a href="#">二手交易</a></li>
                     <li><a href="#">二手交換</a></li>
-                    <li><a href="#">商 店 街</a></li>
                 </ul>
 
                 <div class="floatr"></div>
@@ -457,41 +457,44 @@
     </div>
     <!-- /container -->
 
+      <script src="Scripts/jquery-2.1.0.js"></script>
 
+      <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-        <script type="text/javascript" src="sliderengine/jquery.js"></script>
-    <%--    <script src="assets/js/jquery.js"></script>--%>
-    <script src="assets/js/google-code-prettify/prettify.js"></script>
-<%--    <script src="assets/js/application.js"></script>--%><%--不知道作用 而且會造成MENU無法控制--%>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-modal.js"></script>
-    <script src="assets/js/bootstrap-scrollspy.js"></script>
-    <script src="assets/js/bootstrap-alert.js"></script>
-    <script src="assets/js/bootstrap-dropdown.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/bootstrap-tooltip.js"></script>
-    <script src="assets/js/bootstrap-popover.js"></script>
-    <script src="assets/js/bootstrap-button.js"></script>
-    <script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-carousel.js"></script>
-    <script src="assets/js/bootstrap-typeahead.js"></script>
-    <script src="assets/js/bootstrap-affix.js"></script>
-    <script src="assets/js/jquery.lightbox-0.5.js"></script>
-    <script src="assets/js/bootsshoptgl.js"></script>
-    <script src="js/lavalamp.js"></script>
-    <script src="mixitup-master/build/jquery.mixitup.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('#gallery a').lightBox();
-        });
+      <script src="assets/js/google-code-prettify/prettify.js"></script>
+      <%--    <script src="assets/js/application.js"></script>--%><%--不知道作用 而且會造成MENU無法控制--%>
+      <script src="assets/js/bootstrap-transition.js"></script>
+      <script src="assets/js/bootstrap-modal.js"></script>
+      <script src="assets/js/bootstrap-scrollspy.js"></script>
+      <script src="assets/js/bootstrap-alert.js"></script>
+      <script src="assets/js/bootstrap-dropdown.js"></script>
+      <script src="assets/js/bootstrap-tab.js"></script>
+      <script src="assets/js/bootstrap-tooltip.js"></script>
+      <script src="assets/js/bootstrap-popover.js"></script>
+      <script src="assets/js/bootstrap-button.js"></script>
+      <script src="assets/js/bootstrap-collapse.js"></script>
+      <script src="assets/js/bootstrap-carousel.js"></script>
+      <script src="assets/js/bootstrap-typeahead.js"></script>
+      <script src="assets/js/bootstrap-affix.js"></script>
+      <script src="assets/js/jquery.lightbox-0.5.js"></script>
+      <script src="assets/js/bootsshoptgl.js"></script>
+      <%--<script src="js/lavalamp.js"></script>--%>   <%--開著會有很多錯誤--%>
+      <script src="mixitup-master/build/jquery.mixitup.min.js"></script>
+      <script type="text/javascript">
+          $(function () {
+              $('#gallery a').lightBox();
+          });
 
-        $(function () {
-            $('#Container').mixItUp();
-        });
-    </script>
+          $(function () {
+              $('#Container').mixItUp();
+          });
+      </script>
+<%--==================================== 志敬 Start =========================================================--%>
+      <script src="Scripts/ShoppingCart.js"></script>  <%--購物車--%>
+      <script type="text/javascript" src="sliderengine/jquery.js"></script>   <%--大廣告--%>
+      <script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>  <%--大廣告--%>
+<%--==================================== 志敬 End =========================================================--%>
 
-    <script type="text/javascript" src="sliderengine/jquery.hislider.js"></script>
 <!-- =================================================script程式 Star====================================================================== -->
       <asp:ContentPlaceHolder ID="scriptPlaceHolder" runat="server">
       </asp:ContentPlaceHolder>
