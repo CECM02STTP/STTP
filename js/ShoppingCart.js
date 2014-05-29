@@ -44,17 +44,17 @@ for (var i = 0 ; i < Cookcount ; i++) {  // 全域變數已+1，因此 = 拿掉
             "type": "get",//傳送資料的方法 get, post
             "url": "ashx/ProductCartHandler.ashx",//呼叫server端的哪支程式
             "datatype": "json",//Server回傳的檔案格式text,xml,json.script
-            "data": { "id": productID },//要傳送到server的資料
+            "data": { "GoodsID": productID },//要傳送到server的資料
             "success": function (data) {//Server回傳的結果
                 //console.log(data)
-                var td1 = $("<td style='width: 100px'></td>").append("<img src='/STTPshop/ashx/ImageHandler.ashx?id=" + data.ProductID + "'/>").append("<input type='hidden' value='" + data.ProductID + "'/>")
-                var td2 = $('<td></td>').append("<p>【" + data.ModelName + "】</p>").append(data.Description)
+                var td1 = $("<td style='width: 100px'></td>").append("<img src='/STTPshop/ashx/StdntGoodsImage.ashx?PictureID=" + data.GoodsID + "'/>").append("<input type='hidden' value='" + data.GoodsID + "'/>")
+                var td2 = $('<td></td>').append("<p>【" + data.GoodsName + "】</p>").append(data.Description)
                 //移除+-按鈕
                 var countbox = "<div class='input-append'><input value='' class='span1' style='max-width: 34px' placeholder='1' size='16' type='text'><button class='btn btn-danger' type='button'><i class='icon-remove icon-white'></i></button></div>"
                 var td3 = $('<td></td>').append(countbox)
-                var td4 = $('<td></td>').append(data.UnitCost)
+                var td4 = $('<td></td>').append(data.Price)
                 var td5 = $('<td></td>').append("NT$" + 0)
-                var td6 = $('<td></td>').append(data.UnitCost)
+                var td6 = $('<td></td>').append(data.Price)
                 var tr1 = $('<tr></tr>').append(td1).append(td2).append(td3).append(td4).append(td5).append(td6)
                 $('#CartList').append(tr1) //加在tbody
 
@@ -91,11 +91,11 @@ function total() { //重新計算金額
         }
         else {
             var productcount = getCookie("productcount" + i)
-            $.getJSON("ashx/ProductCartHandler.ashx", { "id": productID }, function (data) { //json 回傳一個 product的物件
-                //Totoal += data.UnitCost;
+            //$.getJSON("ashx/ProductCartHandler.ashx", { "PictureID": productID }, function (data) { //json 回傳一個 product的物件
+            //    //Totoal += data.UnitCost;
                 temp += 1
                 if (temp == Cookcount) { CallCount() }  //temp = Cookcount 表示所有購物清單已產生完畢
-            })
+            //})
         }
     }
 }

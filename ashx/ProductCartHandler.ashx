@@ -4,15 +4,21 @@ using System;
 using System.Web;
 using System.IO;
 using Newtonsoft.Json;
-using System.Drawing;
+using System.Linq;
 public class ProductCartHandler : IHttpHandler
 {
 
-    storeEntities db = new storeEntities();
+    STTPEntities db = new STTPEntities();
     public void ProcessRequest(HttpContext context)
     {
-        var id = Convert.ToInt32(context.Request.QueryString["id"]);  
-        Product product = db.Products.Find(id);
+        String GoodsID = "1";
+        if (context.Request.QueryString["GoodsID"] != null)
+        {
+            GoodsID = context.Request.QueryString["GoodsID"];
+        }
+        StdntGoods product = db.StdntGoods.Find(Convert.ToInt32(GoodsID));
+     
+            
         context.Response.ContentType = "applicataion/json";
         context.Response.Write(JsonConvert.SerializeObject(product)); //一筆Product物件
     }

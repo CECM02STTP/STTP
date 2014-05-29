@@ -4,58 +4,148 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="STTPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="STTPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="STTPModelStoreContainer">
+          <EntitySet Name="GoodsOrderDetails" EntityType="STTPModel.Store.GoodsOrderDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MemberData" EntityType="STTPModel.Store.MemberData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductOrder" EntityType="STTPModel.Store.ProductOrder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SchoolData" EntityType="STTPModel.Store.SchoolData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShopData" EntityType="STTPModel.Store.ShopData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShopGoods" EntityType="STTPModel.Store.ShopGoods" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShopGoodsCategory" EntityType="STTPModel.Store.ShopGoodsCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShopGoodsPic" EntityType="STTPModel.Store.ShopGoodsPic" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShopGoodsSubCategory" EntityType="STTPModel.Store.ShopGoodsSubCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StdntGoods" EntityType="STTPModel.Store.StdntGoods" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StdntGoodsCategory" EntityType="STTPModel.Store.StdntGoodsCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StdntGoodsPic" EntityType="STTPModel.Store.StdntGoodsPic" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StdntGoodsSubCategory" EntityType="STTPModel.Store.StdntGoodsSubCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WishDetail" EntityType="STTPModel.Store.WishDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WishList" EntityType="STTPModel.Store.WishList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StdntGoodsView" EntityType="STTPModel.Store.StdntGoodsView" store:Type="Views" store:Schema="dbo" store:Name="StdntGoodsView">
+            <DefiningQuery>SELECT 
+      [StdntGoodsView].[GoodsName] AS [GoodsName], 
+      [StdntGoodsView].[Price] AS [Price], 
+      [StdntGoodsView].[Quantity] AS [Quantity], 
+      [StdntGoodsView].[SellerID] AS [SellerID], 
+      [StdntGoodsView].[StartTime] AS [StartTime], 
+      [StdntGoodsView].[Picture] AS [Picture], 
+      [StdntGoodsView].[PictureID] AS [PictureID], 
+      [StdntGoodsView].[SchoolName] AS [SchoolName], 
+      [StdntGoodsView].[Region] AS [Region], 
+      [StdntGoodsView].[Description] AS [Description], 
+      [StdntGoodsView].[GoodsID] AS [GoodsID]
+      FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_MemberData_SchoolData" Association="STTPModel.Store.FK_MemberData_SchoolData">
+            <End Role="SchoolData" EntitySet="SchoolData" />
+            <End Role="MemberData" EntitySet="MemberData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopGoods_ShopData" Association="STTPModel.Store.FK_ShopGoods_ShopData">
+            <End Role="ShopData" EntitySet="ShopData" />
+            <End Role="ShopGoods" EntitySet="ShopGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopGoods_ShopGoodsSubCategory" Association="STTPModel.Store.FK_ShopGoods_ShopGoodsSubCategory">
+            <End Role="ShopGoodsSubCategory" EntitySet="ShopGoodsSubCategory" />
+            <End Role="ShopGoods" EntitySet="ShopGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopGoodsPic_ShopGoods" Association="STTPModel.Store.FK_ShopGoodsPic_ShopGoods">
+            <End Role="ShopGoods" EntitySet="ShopGoods" />
+            <End Role="ShopGoodsPic" EntitySet="ShopGoodsPic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShopGoodsSubCategory_ShopGoodsCategory" Association="STTPModel.Store.FK_ShopGoodsSubCategory_ShopGoodsCategory">
+            <End Role="ShopGoodsCategory" EntitySet="ShopGoodsCategory" />
+            <End Role="ShopGoodsSubCategory" EntitySet="ShopGoodsSubCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StdntGoods_MemberData1" Association="STTPModel.Store.FK_StdntGoods_MemberData1">
+            <End Role="MemberData" EntitySet="MemberData" />
+            <End Role="StdntGoods" EntitySet="StdntGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StdntGoods_StdntGoodsSubCategory" Association="STTPModel.Store.FK_StdntGoods_StdntGoodsSubCategory">
+            <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
+            <End Role="StdntGoods" EntitySet="StdntGoods" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StdntGoodsPic_StdntGoods" Association="STTPModel.Store.FK_StdntGoodsPic_StdntGoods">
+            <End Role="StdntGoods" EntitySet="StdntGoods" />
+            <End Role="StdntGoodsPic" EntitySet="StdntGoodsPic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StdntGoodsSubCategory_StdntGoodsCategory1" Association="STTPModel.Store.FK_StdntGoodsSubCategory_StdntGoodsCategory1">
+            <End Role="StdntGoodsCategory" EntitySet="StdntGoodsCategory" />
+            <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="GoodsOrderDetails">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="GoodsID" />
+          </Key>
+          <Property Name="OrderID" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="GoodsID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="smallint" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="10" />
+          <Property Name="SellerID" Type="nvarchar" MaxLength="25" />
+          <Property Name="BuyerID" Type="nvarchar" MaxLength="25" />
+        </EntityType>
         <EntityType Name="MemberData">
           <Key>
             <PropertyRef Name="MemberID" />
           </Key>
-          <Property Name="MemberID" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="16" Nullable="false" />
-          <Property Name="MemberName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="ROCID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MemberID" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="MemberName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="ROCID" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="MemberPhoto" Type="varbinary(max)" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SchoolID" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SchoolID" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="PhoneChecked" Type="bit" Nullable="false" />
           <Property Name="EmailChecked" Type="bit" Nullable="false" />
           <Property Name="RegrDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductOrder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="char" Nullable="false" MaxLength="13" />
+          <Property Name="MemberID" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="TransDateTime" Type="datetime2" Precision="0" />
+          <Property Name="OrderStatus" Type="tinyint" />
+          <Property Name="HandleTime" Type="datetime2" Precision="0" />
         </EntityType>
         <EntityType Name="SchoolData">
           <Key>
             <PropertyRef Name="SchoolID" />
           </Key>
-          <Property Name="SchoolID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="SchoolName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Region" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SchoolID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="10" />
         </EntityType>
         <EntityType Name="ShopData">
           <Key>
             <PropertyRef Name="ShopID" />
           </Key>
-          <Property Name="ShopID" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="16" Nullable="false" />
-          <Property Name="ShopName" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="ShopOwner" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="ROCID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="BusinessNo" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="25" Nullable="false" />
-          <Property Name="ShopAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ShopArea" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ShopID" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="16" />
+          <Property Name="ShopName" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="ShopOwner" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="ROCID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="BusinessNo" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Phone" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="ShopAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShopArea" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="RegrDateTime" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ShopGoods">
           <Key>
             <PropertyRef Name="GoodsID" />
           </Key>
-          <Property Name="GoodsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SubCategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="ShopID" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="GoodsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SubCategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="ShopID" Type="nvarchar" Nullable="false" MaxLength="25" />
           <Property Name="BuyerID" Type="nvarchar" MaxLength="25" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="10" />
           <Property Name="Quantity" Type="smallint" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="StartTime" Type="datetime" Nullable="false" />
@@ -70,8 +160,8 @@
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="CategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="10" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="CategoryPic" Type="varbinary(max)" />
         </EntityType>
@@ -79,7 +169,7 @@
           <Key>
             <PropertyRef Name="PictureID" />
           </Key>
-          <Property Name="PictureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PictureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="GoodsID" Type="int" Nullable="false" />
           <Property Name="Picture" Type="varbinary(max)" />
           <Property Name="MIMEType" Type="varchar" MaxLength="50" />
@@ -88,9 +178,9 @@
           <Key>
             <PropertyRef Name="SubCategoryID" />
           </Key>
-          <Property Name="SubCategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="CategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="SubCategoryName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SubCategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="CategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="SubCategoryName" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="SubCategoryPic" Type="varbinary(max)" />
         </EntityType>
@@ -98,12 +188,13 @@
           <Key>
             <PropertyRef Name="GoodsID" />
           </Key>
-          <Property Name="GoodsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="SubCategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="SellerID" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="GoodsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GoodsName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SubCategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="SellerID" Type="nvarchar" Nullable="false" MaxLength="25" />
           <Property Name="BuyerID" Type="nvarchar" MaxLength="25" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="10" />
+          <Property Name="ShippingCost" Type="decimal" Precision="10" />
           <Property Name="Quantity" Type="smallint" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="StartTime" Type="datetime" Nullable="false" />
@@ -120,8 +211,8 @@
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
-          <Property Name="CategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="CategoryPic" Type="varbinary(max)" />
         </EntityType>
@@ -129,7 +220,7 @@
           <Key>
             <PropertyRef Name="PictureID" />
           </Key>
-          <Property Name="PictureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PictureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="GoodsID" Type="int" Nullable="false" />
           <Property Name="Picture" Type="varbinary(max)" />
           <Property Name="MIMEType" Type="varchar" MaxLength="50" />
@@ -138,9 +229,9 @@
           <Key>
             <PropertyRef Name="SubCategoryID" />
           </Key>
-          <Property Name="SubCategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="CategoryID" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="SubCategoryName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SubCategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="CategoryID" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="SubCategoryName" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="SubCategoryPic" Type="varbinary(max)" />
         </EntityType>
@@ -148,7 +239,7 @@
           <Key>
             <PropertyRef Name="DetailID" />
           </Key>
-          <Property Name="DetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DetailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="WishID" Type="int" Nullable="false" />
           <Property Name="GoodsID" Type="int" Nullable="false" />
           <Property Name="Comment" Type="nvarchar" MaxLength="100" />
@@ -158,7 +249,7 @@
           <Property Name="DateAdd" Type="datetime" Nullable="false" />
           <Property Name="GoodsName" Type="nvarchar" MaxLength="50" />
           <Property Name="SellerID" Type="nvarchar" MaxLength="25" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Price" Type="decimal" Precision="10" />
           <Property Name="Quantity" Type="int" />
           <Property Name="Picture" Type="varbinary(max)" />
         </EntityType>
@@ -166,17 +257,18 @@
           <Key>
             <PropertyRef Name="WishID" />
           </Key>
-          <Property Name="WishID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="WishName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="MemberID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WishID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WishName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MemberID" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="DefaultList" Type="bit" Nullable="false" />
           <Property Name="SecuritySet" Type="bit" Nullable="false" />
           <Property Name="Surprise" Type="bit" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="AboutMe" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'STTP.dbo.StdntGoodsView' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
+      警告 6002: 資料表/檢視 'STTP.dbo.StdntGoodsView' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。
+      -->
         <EntityType Name="StdntGoodsView">
           <Key>
             <PropertyRef Name="GoodsName" />
@@ -187,20 +279,24 @@
             <PropertyRef Name="PictureID" />
             <PropertyRef Name="SchoolName" />
             <PropertyRef Name="Region" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="GoodsID" />
           </Key>
-          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Price" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="10" />
           <Property Name="Quantity" Type="smallint" Nullable="false" />
-          <Property Name="SellerID" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SellerID" Type="nvarchar" Nullable="false" MaxLength="25" />
           <Property Name="StartTime" Type="datetime" Nullable="false" />
           <Property Name="Picture" Type="varbinary(max)" />
           <Property Name="PictureID" Type="int" Nullable="false" />
-          <Property Name="SchoolName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Region" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="SchoolName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GoodsID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_MemberData_SchoolData">
-          <End Role="SchoolData" Type="Self.SchoolData" Multiplicity="1" />
-          <End Role="MemberData" Type="Self.MemberData" Multiplicity="*" />
+          <End Role="SchoolData" Type="STTPModel.Store.SchoolData" Multiplicity="1" />
+          <End Role="MemberData" Type="STTPModel.Store.MemberData" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SchoolData">
               <PropertyRef Name="SchoolID" />
@@ -211,8 +307,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShopGoods_ShopData">
-          <End Role="ShopData" Type="Self.ShopData" Multiplicity="1" />
-          <End Role="ShopGoods" Type="Self.ShopGoods" Multiplicity="*" />
+          <End Role="ShopData" Type="STTPModel.Store.ShopData" Multiplicity="1" />
+          <End Role="ShopGoods" Type="STTPModel.Store.ShopGoods" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShopData">
               <PropertyRef Name="ShopID" />
@@ -223,8 +319,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShopGoods_ShopGoodsSubCategory">
-          <End Role="ShopGoodsSubCategory" Type="Self.ShopGoodsSubCategory" Multiplicity="1" />
-          <End Role="ShopGoods" Type="Self.ShopGoods" Multiplicity="*" />
+          <End Role="ShopGoodsSubCategory" Type="STTPModel.Store.ShopGoodsSubCategory" Multiplicity="1" />
+          <End Role="ShopGoods" Type="STTPModel.Store.ShopGoods" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShopGoodsSubCategory">
               <PropertyRef Name="SubCategoryID" />
@@ -235,8 +331,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShopGoodsPic_ShopGoods">
-          <End Role="ShopGoods" Type="Self.ShopGoods" Multiplicity="1" />
-          <End Role="ShopGoodsPic" Type="Self.ShopGoodsPic" Multiplicity="*" />
+          <End Role="ShopGoods" Type="STTPModel.Store.ShopGoods" Multiplicity="1" />
+          <End Role="ShopGoodsPic" Type="STTPModel.Store.ShopGoodsPic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShopGoods">
               <PropertyRef Name="GoodsID" />
@@ -247,8 +343,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ShopGoodsSubCategory_ShopGoodsCategory">
-          <End Role="ShopGoodsCategory" Type="Self.ShopGoodsCategory" Multiplicity="1" />
-          <End Role="ShopGoodsSubCategory" Type="Self.ShopGoodsSubCategory" Multiplicity="*" />
+          <End Role="ShopGoodsCategory" Type="STTPModel.Store.ShopGoodsCategory" Multiplicity="1" />
+          <End Role="ShopGoodsSubCategory" Type="STTPModel.Store.ShopGoodsSubCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ShopGoodsCategory">
               <PropertyRef Name="CategoryID" />
@@ -259,8 +355,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StdntGoods_MemberData1">
-          <End Role="MemberData" Type="Self.MemberData" Multiplicity="1" />
-          <End Role="StdntGoods" Type="Self.StdntGoods" Multiplicity="*" />
+          <End Role="MemberData" Type="STTPModel.Store.MemberData" Multiplicity="1" />
+          <End Role="StdntGoods" Type="STTPModel.Store.StdntGoods" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MemberData">
               <PropertyRef Name="MemberID" />
@@ -271,8 +367,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StdntGoods_StdntGoodsSubCategory">
-          <End Role="StdntGoodsSubCategory" Type="Self.StdntGoodsSubCategory" Multiplicity="1" />
-          <End Role="StdntGoods" Type="Self.StdntGoods" Multiplicity="*" />
+          <End Role="StdntGoodsSubCategory" Type="STTPModel.Store.StdntGoodsSubCategory" Multiplicity="1" />
+          <End Role="StdntGoods" Type="STTPModel.Store.StdntGoods" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StdntGoodsSubCategory">
               <PropertyRef Name="SubCategoryID" />
@@ -283,8 +379,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StdntGoodsPic_StdntGoods">
-          <End Role="StdntGoods" Type="Self.StdntGoods" Multiplicity="1" />
-          <End Role="StdntGoodsPic" Type="Self.StdntGoodsPic" Multiplicity="*" />
+          <End Role="StdntGoods" Type="STTPModel.Store.StdntGoods" Multiplicity="1" />
+          <End Role="StdntGoodsPic" Type="STTPModel.Store.StdntGoodsPic" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StdntGoods">
               <PropertyRef Name="GoodsID" />
@@ -295,8 +391,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_StdntGoodsSubCategory_StdntGoodsCategory1">
-          <End Role="StdntGoodsCategory" Type="Self.StdntGoodsCategory" Multiplicity="1" />
-          <End Role="StdntGoodsSubCategory" Type="Self.StdntGoodsSubCategory" Multiplicity="*" />
+          <End Role="StdntGoodsCategory" Type="STTPModel.Store.StdntGoodsCategory" Multiplicity="1" />
+          <End Role="StdntGoodsSubCategory" Type="STTPModel.Store.StdntGoodsSubCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="StdntGoodsCategory">
               <PropertyRef Name="CategoryID" />
@@ -306,70 +402,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="STTPModelStoreContainer">
-          <EntitySet Name="MemberData" EntityType="Self.MemberData" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SchoolData" EntityType="Self.SchoolData" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ShopData" EntityType="Self.ShopData" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ShopGoods" EntityType="Self.ShopGoods" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ShopGoodsCategory" EntityType="Self.ShopGoodsCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ShopGoodsPic" EntityType="Self.ShopGoodsPic" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ShopGoodsSubCategory" EntityType="Self.ShopGoodsSubCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StdntGoods" EntityType="Self.StdntGoods" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StdntGoodsCategory" EntityType="Self.StdntGoodsCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StdntGoodsPic" EntityType="Self.StdntGoodsPic" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StdntGoodsSubCategory" EntityType="Self.StdntGoodsSubCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WishDetail" EntityType="Self.WishDetail" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="WishList" EntityType="Self.WishList" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="StdntGoodsView" EntityType="Self.StdntGoodsView" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-[StdntGoodsView].[GoodsName] AS [GoodsName], 
-[StdntGoodsView].[Price] AS [Price], 
-[StdntGoodsView].[Quantity] AS [Quantity], 
-[StdntGoodsView].[SellerID] AS [SellerID], 
-[StdntGoodsView].[StartTime] AS [StartTime], 
-[StdntGoodsView].[Picture] AS [Picture], 
-[StdntGoodsView].[PictureID] AS [PictureID], 
-[StdntGoodsView].[SchoolName] AS [SchoolName], 
-[StdntGoodsView].[Region] AS [Region]
-FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_MemberData_SchoolData" Association="Self.FK_MemberData_SchoolData">
-            <End Role="SchoolData" EntitySet="SchoolData" />
-            <End Role="MemberData" EntitySet="MemberData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShopGoods_ShopData" Association="Self.FK_ShopGoods_ShopData">
-            <End Role="ShopData" EntitySet="ShopData" />
-            <End Role="ShopGoods" EntitySet="ShopGoods" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShopGoods_ShopGoodsSubCategory" Association="Self.FK_ShopGoods_ShopGoodsSubCategory">
-            <End Role="ShopGoodsSubCategory" EntitySet="ShopGoodsSubCategory" />
-            <End Role="ShopGoods" EntitySet="ShopGoods" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShopGoodsPic_ShopGoods" Association="Self.FK_ShopGoodsPic_ShopGoods">
-            <End Role="ShopGoods" EntitySet="ShopGoods" />
-            <End Role="ShopGoodsPic" EntitySet="ShopGoodsPic" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShopGoodsSubCategory_ShopGoodsCategory" Association="Self.FK_ShopGoodsSubCategory_ShopGoodsCategory">
-            <End Role="ShopGoodsCategory" EntitySet="ShopGoodsCategory" />
-            <End Role="ShopGoodsSubCategory" EntitySet="ShopGoodsSubCategory" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StdntGoods_MemberData1" Association="Self.FK_StdntGoods_MemberData1">
-            <End Role="MemberData" EntitySet="MemberData" />
-            <End Role="StdntGoods" EntitySet="StdntGoods" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StdntGoods_StdntGoodsSubCategory" Association="Self.FK_StdntGoods_StdntGoodsSubCategory">
-            <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
-            <End Role="StdntGoods" EntitySet="StdntGoods" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StdntGoodsPic_StdntGoods" Association="Self.FK_StdntGoodsPic_StdntGoods">
-            <End Role="StdntGoods" EntitySet="StdntGoods" />
-            <End Role="StdntGoodsPic" EntitySet="StdntGoodsPic" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StdntGoodsSubCategory_StdntGoodsCategory1" Association="Self.FK_StdntGoodsSubCategory_StdntGoodsCategory1">
-            <End Role="StdntGoodsCategory" EntitySet="StdntGoodsCategory" />
-            <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -382,7 +414,6 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
           <EntitySet Name="ShopGoodsCategory" EntityType="STTPModel.ShopGoodsCategory" />
           <EntitySet Name="ShopGoodsPic" EntityType="STTPModel.ShopGoodsPic" />
           <EntitySet Name="ShopGoodsSubCategory" EntityType="STTPModel.ShopGoodsSubCategory" />
-          <EntitySet Name="StdntGoods" EntityType="STTPModel.StdntGoods" />
           <EntitySet Name="StdntGoodsCategory" EntityType="STTPModel.StdntGoodsCategory" />
           <EntitySet Name="StdntGoodsPic" EntityType="STTPModel.StdntGoodsPic" />
           <EntitySet Name="StdntGoodsSubCategory" EntityType="STTPModel.StdntGoodsSubCategory" />
@@ -392,10 +423,6 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
           <AssociationSet Name="FK_MemberData_SchoolData" Association="STTPModel.FK_MemberData_SchoolData">
             <End Role="SchoolData" EntitySet="SchoolData" />
             <End Role="MemberData" EntitySet="MemberData" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StdntGoods_MemberData1" Association="STTPModel.FK_StdntGoods_MemberData1">
-            <End Role="MemberData" EntitySet="MemberData" />
-            <End Role="StdntGoods" EntitySet="StdntGoods" />
           </AssociationSet>
           <AssociationSet Name="FK_ShopGoods_ShopData" Association="STTPModel.FK_ShopGoods_ShopData">
             <End Role="ShopData" EntitySet="ShopData" />
@@ -413,6 +440,21 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
             <End Role="ShopGoodsCategory" EntitySet="ShopGoodsCategory" />
             <End Role="ShopGoodsSubCategory" EntitySet="ShopGoodsSubCategory" />
           </AssociationSet>
+          <AssociationSet Name="FK_StdntGoodsSubCategory_StdntGoodsCategory1" Association="STTPModel.FK_StdntGoodsSubCategory_StdntGoodsCategory1">
+            <End Role="StdntGoodsCategory" EntitySet="StdntGoodsCategory" />
+            <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
+          </AssociationSet>
+          <EntitySet Name="GoodsOrderDetails" EntityType="STTPModel.GoodsOrderDetails" />
+          <EntitySet Name="ProductOrder" EntityType="STTPModel.ProductOrder" />
+          <AssociationSet Name="FK_GoodsOrderDetails_ProductOrder" Association="STTPModel.FK_GoodsOrderDetails_ProductOrder">
+            <End Role="ProductOrder" EntitySet="ProductOrder" />
+            <End Role="GoodsOrderDetails" EntitySet="GoodsOrderDetails" />
+          </AssociationSet>
+          <EntitySet Name="StdntGoods" EntityType="STTPModel.StdntGoods" />
+          <AssociationSet Name="FK_StdntGoods_MemberData1" Association="STTPModel.FK_StdntGoods_MemberData1">
+            <End Role="MemberData" EntitySet="MemberData" />
+            <End Role="StdntGoods" EntitySet="StdntGoods" />
+          </AssociationSet>
           <AssociationSet Name="FK_StdntGoods_StdntGoodsSubCategory" Association="STTPModel.FK_StdntGoods_StdntGoodsSubCategory">
             <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
             <End Role="StdntGoods" EntitySet="StdntGoods" />
@@ -420,10 +462,6 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
           <AssociationSet Name="FK_StdntGoodsPic_StdntGoods" Association="STTPModel.FK_StdntGoodsPic_StdntGoods">
             <End Role="StdntGoods" EntitySet="StdntGoods" />
             <End Role="StdntGoodsPic" EntitySet="StdntGoodsPic" />
-          </AssociationSet>
-          <AssociationSet Name="FK_StdntGoodsSubCategory_StdntGoodsCategory1" Association="STTPModel.FK_StdntGoodsSubCategory_StdntGoodsCategory1">
-            <End Role="StdntGoodsCategory" EntitySet="StdntGoodsCategory" />
-            <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="MemberData">
@@ -526,31 +564,6 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
           <NavigationProperty Name="ShopGoods" Relationship="STTPModel.FK_ShopGoods_ShopGoodsSubCategory" FromRole="ShopGoodsSubCategory" ToRole="ShopGoods" />
           <NavigationProperty Name="ShopGoodsCategory" Relationship="STTPModel.FK_ShopGoodsSubCategory_ShopGoodsCategory" FromRole="ShopGoodsSubCategory" ToRole="ShopGoodsCategory" />
         </EntityType>
-        <EntityType Name="StdntGoods">
-          <Key>
-            <PropertyRef Name="GoodsID" />
-          </Key>
-          <Property Name="GoodsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GoodsName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SubCategoryID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="SellerID" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="BuyerID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
-          <Property Name="Quantity" Type="Int16" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EndTime" Type="DateTime" Precision="3" />
-          <Property Name="OnlineStatus" Type="Boolean" Nullable="false" />
-          <Property Name="DealTime" Type="DateTime" Precision="3" />
-          <Property Name="ClickCount" Type="Int32" Nullable="false" />
-          <Property Name="TrackCount" Type="Int32" Nullable="false" />
-          <Property Name="IsExchange" Type="Boolean" Nullable="false" />
-          <Property Name="SecondHand" Type="Boolean" Nullable="false" />
-          <Property Name="Report" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="MemberData" Relationship="STTPModel.FK_StdntGoods_MemberData1" FromRole="StdntGoods" ToRole="MemberData" />
-          <NavigationProperty Name="StdntGoodsSubCategory" Relationship="STTPModel.FK_StdntGoods_StdntGoodsSubCategory" FromRole="StdntGoods" ToRole="StdntGoodsSubCategory" />
-          <NavigationProperty Name="StdntGoodsPic" Relationship="STTPModel.FK_StdntGoodsPic_StdntGoods" FromRole="StdntGoods" ToRole="StdntGoodsPic" />
-        </EntityType>
         <EntityType Name="StdntGoodsCategory">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -580,8 +593,8 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
           <Property Name="SubCategoryName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SubCategoryPic" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="StdntGoods" Relationship="STTPModel.FK_StdntGoods_StdntGoodsSubCategory" FromRole="StdntGoodsSubCategory" ToRole="StdntGoods" />
           <NavigationProperty Name="StdntGoodsCategory" Relationship="STTPModel.FK_StdntGoodsSubCategory_StdntGoodsCategory1" FromRole="StdntGoodsSubCategory" ToRole="StdntGoodsCategory" />
+          <NavigationProperty Name="StdntGoods" Relationship="STTPModel.FK_StdntGoods_StdntGoodsSubCategory" FromRole="StdntGoodsSubCategory" ToRole="StdntGoods" />
         </EntityType>
         <EntityType Name="WishDetail">
           <Key>
@@ -624,6 +637,8 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
             <PropertyRef Name="PictureID" />
             <PropertyRef Name="SchoolName" />
             <PropertyRef Name="Region" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="GoodsID" />
           </Key>
           <Property Name="GoodsName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
@@ -634,6 +649,8 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
           <Property Name="PictureID" Type="Int32" Nullable="false" />
           <Property Name="SchoolName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Region" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="GoodsID" Nullable="false" />
         </EntityType>
         <Association Name="FK_MemberData_SchoolData">
           <End Type="STTPModel.SchoolData" Role="SchoolData" Multiplicity="1" />
@@ -644,18 +661,6 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
             </Principal>
             <Dependent Role="MemberData">
               <PropertyRef Name="SchoolID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StdntGoods_MemberData1">
-          <End Type="STTPModel.MemberData" Role="MemberData" Multiplicity="1" />
-          <End Type="STTPModel.StdntGoods" Role="StdntGoods" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MemberData">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="StdntGoods">
-              <PropertyRef Name="SellerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -707,6 +712,87 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_StdntGoodsSubCategory_StdntGoodsCategory1">
+          <End Type="STTPModel.StdntGoodsCategory" Role="StdntGoodsCategory" Multiplicity="1" />
+          <End Type="STTPModel.StdntGoodsSubCategory" Role="StdntGoodsSubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StdntGoodsCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="StdntGoodsSubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GoodsOrderDetails">
+          <Key>
+            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="GoodsID" />
+          </Key>
+          <Property Type="String" Name="OrderID" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Type="Int32" Name="GoodsID" Nullable="false" />
+          <Property Type="Int16" Name="Quantity" Nullable="false" />
+          <Property Type="Decimal" Name="UnitPrice" Precision="10" Scale="0" />
+          <Property Type="String" Name="SellerID" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuyerID" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductOrder">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Type="String" Name="OrderID" Nullable="false" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="MemberID" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="TransDateTime" Precision="0" />
+          <Property Type="Byte" Name="OrderStatus" />
+          <Property Type="DateTime" Name="HandleTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_GoodsOrderDetails_ProductOrder">
+          <End Type="STTPModel.ProductOrder" Role="ProductOrder" Multiplicity="1" />
+          <End Type="STTPModel.GoodsOrderDetails" Role="GoodsOrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductOrder">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="GoodsOrderDetails">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StdntGoods">
+          <Key>
+            <PropertyRef Name="GoodsID" />
+          </Key>
+          <Property Type="Int32" Name="GoodsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GoodsName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SubCategoryID" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SellerID" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BuyerID" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="10" Scale="0" />
+          <Property Type="Decimal" Name="ShippingCost" Precision="10" Scale="0" />
+          <Property Type="Int16" Name="Quantity" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndTime" Precision="3" />
+          <Property Type="Boolean" Name="OnlineStatus" Nullable="false" />
+          <Property Type="DateTime" Name="DealTime" Precision="3" />
+          <Property Type="Int32" Name="ClickCount" Nullable="false" />
+          <Property Type="Int32" Name="TrackCount" Nullable="false" />
+          <Property Type="Boolean" Name="IsExchange" Nullable="false" />
+          <Property Type="Boolean" Name="SecondHand" Nullable="false" />
+          <Property Type="Boolean" Name="Report" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_StdntGoods_MemberData1">
+          <End Type="STTPModel.MemberData" Role="MemberData" Multiplicity="1" />
+          <End Type="STTPModel.StdntGoods" Role="StdntGoods" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberData">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="StdntGoods">
+              <PropertyRef Name="SellerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_StdntGoods_StdntGoodsSubCategory">
           <End Type="STTPModel.StdntGoodsSubCategory" Role="StdntGoodsSubCategory" Multiplicity="1" />
           <End Type="STTPModel.StdntGoods" Role="StdntGoods" Multiplicity="*" />
@@ -728,18 +814,6 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
             </Principal>
             <Dependent Role="StdntGoodsPic">
               <PropertyRef Name="GoodsID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_StdntGoodsSubCategory_StdntGoodsCategory1">
-          <End Type="STTPModel.StdntGoodsCategory" Role="StdntGoodsCategory" Multiplicity="1" />
-          <End Type="STTPModel.StdntGoodsSubCategory" Role="StdntGoodsSubCategory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="StdntGoodsCategory">
-              <PropertyRef Name="CategoryID" />
-            </Principal>
-            <Dependent Role="StdntGoodsSubCategory">
-              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -845,29 +919,6 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="StdntGoods">
-            <EntityTypeMapping TypeName="STTPModel.StdntGoods">
-              <MappingFragment StoreEntitySet="StdntGoods">
-                <ScalarProperty Name="Report" ColumnName="Report" />
-                <ScalarProperty Name="SecondHand" ColumnName="SecondHand" />
-                <ScalarProperty Name="IsExchange" ColumnName="IsExchange" />
-                <ScalarProperty Name="TrackCount" ColumnName="TrackCount" />
-                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
-                <ScalarProperty Name="DealTime" ColumnName="DealTime" />
-                <ScalarProperty Name="OnlineStatus" ColumnName="OnlineStatus" />
-                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
-                <ScalarProperty Name="SellerID" ColumnName="SellerID" />
-                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
-                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
-                <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StdntGoodsCategory">
             <EntityTypeMapping TypeName="STTPModel.StdntGoodsCategory">
               <MappingFragment StoreEntitySet="StdntGoodsCategory">
@@ -935,6 +986,8 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
           <EntitySetMapping Name="StdntGoodsView">
             <EntityTypeMapping TypeName="STTPModel.StdntGoodsView">
               <MappingFragment StoreEntitySet="StdntGoodsView">
+                <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Region" ColumnName="Region" />
                 <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
                 <ScalarProperty Name="PictureID" ColumnName="PictureID" />
@@ -944,6 +997,53 @@ FROM [dbo].[StdntGoodsView] AS [StdntGoodsView]</DefiningQuery>
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodsOrderDetails">
+            <EntityTypeMapping TypeName="STTPModel.GoodsOrderDetails">
+              <MappingFragment StoreEntitySet="GoodsOrderDetails">
+                <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
+                <ScalarProperty Name="SellerID" ColumnName="SellerID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductOrder">
+            <EntityTypeMapping TypeName="STTPModel.ProductOrder">
+              <MappingFragment StoreEntitySet="ProductOrder">
+                <ScalarProperty Name="HandleTime" ColumnName="HandleTime" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="TransDateTime" ColumnName="TransDateTime" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StdntGoods">
+            <EntityTypeMapping TypeName="STTPModel.StdntGoods">
+              <MappingFragment StoreEntitySet="StdntGoods">
+                <ScalarProperty Name="Report" ColumnName="Report" />
+                <ScalarProperty Name="SecondHand" ColumnName="SecondHand" />
+                <ScalarProperty Name="IsExchange" ColumnName="IsExchange" />
+                <ScalarProperty Name="TrackCount" ColumnName="TrackCount" />
+                <ScalarProperty Name="ClickCount" ColumnName="ClickCount" />
+                <ScalarProperty Name="DealTime" ColumnName="DealTime" />
+                <ScalarProperty Name="OnlineStatus" ColumnName="OnlineStatus" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ShippingCost" ColumnName="ShippingCost" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
+                <ScalarProperty Name="SellerID" ColumnName="SellerID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

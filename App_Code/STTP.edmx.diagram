@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3240f1917825495ebb5a602f122d30f1" Name="圖表1">
+      <Diagram DiagramId="3240f1917825495ebb5a602f122d30f1" Name="圖表1" ZoomLevel="111">
         <EntityTypeShape EntityType="STTPModel.MemberData" Width="1.5" PointX="3" PointY="6.625" />
         <EntityTypeShape EntityType="STTPModel.SchoolData" Width="1.5" PointX="0.75" PointY="7.5" />
         <EntityTypeShape EntityType="STTPModel.ShopData" Width="1.5" PointX="8" PointY="11.625" />
@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="STTPModel.ShopGoodsCategory" Width="1.5" PointX="5.75" PointY="8.25" />
         <EntityTypeShape EntityType="STTPModel.ShopGoodsPic" Width="1.5" PointX="12.5" PointY="8.25" />
         <EntityTypeShape EntityType="STTPModel.ShopGoodsSubCategory" Width="1.5" PointX="8" PointY="8" />
-        <EntityTypeShape EntityType="STTPModel.StdntGoods" Width="1.5" PointX="5.25" PointY="1" />
         <EntityTypeShape EntityType="STTPModel.StdntGoodsCategory" Width="1.5" PointX="0.75" PointY="2.5" />
         <EntityTypeShape EntityType="STTPModel.StdntGoodsPic" Width="1.5" PointX="7.5" PointY="2.5" />
         <EntityTypeShape EntityType="STTPModel.StdntGoodsSubCategory" Width="1.5" PointX="3" PointY="2.25" />
@@ -20,14 +19,18 @@
         <EntityTypeShape EntityType="STTPModel.WishList" Width="1.5" PointX="11.75" PointY="0.75" />
         <EntityTypeShape EntityType="STTPModel.StdntGoodsView" Width="1.5" PointX="0.75" PointY="11.75" />
         <AssociationConnector Association="STTPModel.FK_MemberData_SchoolData" />
-        <AssociationConnector Association="STTPModel.FK_StdntGoods_MemberData1" />
         <AssociationConnector Association="STTPModel.FK_ShopGoods_ShopData" />
         <AssociationConnector Association="STTPModel.FK_ShopGoods_ShopGoodsSubCategory" />
         <AssociationConnector Association="STTPModel.FK_ShopGoodsPic_ShopGoods" />
         <AssociationConnector Association="STTPModel.FK_ShopGoodsSubCategory_ShopGoodsCategory" />
+        <AssociationConnector Association="STTPModel.FK_StdntGoodsSubCategory_StdntGoodsCategory1" />
+        <EntityTypeShape EntityType="STTPModel.GoodsOrderDetails" Width="1.5" PointX="2.75" PointY="11.5" />
+        <EntityTypeShape EntityType="STTPModel.ProductOrder" Width="1.5" PointX="4.875" PointY="11.75" />
+        <AssociationConnector Association="STTPModel.FK_GoodsOrderDetails_ProductOrder" />
+        <EntityTypeShape EntityType="STTPModel.StdntGoods" Width="1.5" PointX="5.25" PointY="1.125" />
+        <AssociationConnector Association="STTPModel.FK_StdntGoods_MemberData1" />
         <AssociationConnector Association="STTPModel.FK_StdntGoods_StdntGoodsSubCategory" />
         <AssociationConnector Association="STTPModel.FK_StdntGoodsPic_StdntGoods" />
-        <AssociationConnector Association="STTPModel.FK_StdntGoodsSubCategory_StdntGoodsCategory1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

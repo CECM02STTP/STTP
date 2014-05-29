@@ -30,11 +30,13 @@ public partial class STTPEntities : DbContext
     public DbSet<ShopGoodsCategory> ShopGoodsCategory { get; set; }
     public DbSet<ShopGoodsPic> ShopGoodsPic { get; set; }
     public DbSet<ShopGoodsSubCategory> ShopGoodsSubCategory { get; set; }
-    public DbSet<StdntGoods> StdntGoods { get; set; }
     public DbSet<StdntGoodsCategory> StdntGoodsCategory { get; set; }
     public DbSet<StdntGoodsPic> StdntGoodsPic { get; set; }
     public DbSet<StdntGoodsSubCategory> StdntGoodsSubCategory { get; set; }
     public DbSet<WishDetail> WishDetail { get; set; }
     public DbSet<WishList> WishList { get; set; }
     public DbSet<StdntGoodsView> StdntGoodsView { get; set; }
+    public DbSet<GoodsOrderDetails> GoodsOrderDetails { get; set; }
+    public DbSet<ProductOrder> ProductOrder { get; set; }
+    public DbSet<StdntGoods> StdntGoods { get; set; }
 }

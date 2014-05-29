@@ -10,6 +10,16 @@
 using System;
 using System.Collections.Generic;
 
+public partial class GoodsOrderDetails
+{
+    public string OrderID { get; set; }
+    public int GoodsID { get; set; }
+    public short Quantity { get; set; }
+    public Nullable<decimal> UnitPrice { get; set; }
+    public string SellerID { get; set; }
+    public string BuyerID { get; set; }
+}
+
 public partial class MemberData
 {
     public MemberData()
@@ -32,6 +42,15 @@ public partial class MemberData
 
     public virtual SchoolData SchoolData { get; set; }
     public virtual ICollection<StdntGoods> StdntGoods { get; set; }
+}
+
+public partial class ProductOrder
+{
+    public string OrderID { get; set; }
+    public string MemberID { get; set; }
+    public Nullable<System.DateTime> TransDateTime { get; set; }
+    public Nullable<byte> OrderStatus { get; set; }
+    public Nullable<System.DateTime> HandleTime { get; set; }
 }
 
 public partial class SchoolData
@@ -153,6 +172,7 @@ public partial class StdntGoods
     public string SellerID { get; set; }
     public string BuyerID { get; set; }
     public decimal Price { get; set; }
+    public Nullable<decimal> ShippingCost { get; set; }
     public short Quantity { get; set; }
     public string Description { get; set; }
     public System.DateTime StartTime { get; set; }
@@ -208,8 +228,8 @@ public partial class StdntGoodsSubCategory
     public string Description { get; set; }
     public byte[] SubCategoryPic { get; set; }
 
-    public virtual ICollection<StdntGoods> StdntGoods { get; set; }
     public virtual StdntGoodsCategory StdntGoodsCategory { get; set; }
+    public virtual ICollection<StdntGoods> StdntGoods { get; set; }
 }
 
 public partial class StdntGoodsView
@@ -223,6 +243,8 @@ public partial class StdntGoodsView
     public int PictureID { get; set; }
     public string SchoolName { get; set; }
     public string Region { get; set; }
+    public string Description { get; set; }
+    public int GoodsID { get; set; }
 }
 
 public partial class WishDetail
