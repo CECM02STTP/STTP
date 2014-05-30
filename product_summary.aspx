@@ -59,7 +59,6 @@
             </tr>
         </thead>
         <tbody id="CartList">
-           
         </tbody>
         <tfoot id="CartListTotal">
         </tfoot>
@@ -116,44 +115,4 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="scriptPlaceHolder" runat="Server">
-    <script>
-        $('#Checkout').click(function () {
-            if (getCookie("name") == null) {
-                alert("請先登入")
-            }
-            else {
-                Checkout();
-            }
-        })
-
-        function Checkout()
-        {
-            
-            var Goods = [{ "GoodsID": "1", "Quantity": 3 },
-                        { "GoodsID": "2", "Quantity": 6 },
-                        { "GoodsID": "3", "Quantity": 9 }];
-
-            //for (var i = 0; i < Goods.length; i++) {
-            //    for (var idx_Key in Goods[i]) {
-                    
-            //        //以本例而言，自然分別會是：name、age、height
-                   
-            //        alert(Goods[i][idx_Key]);
-                    
-            //    }
-                
-            //}
-            console.log(Goods)
-
-
-
-            $.getJSON("ashx/CreatOrderHandler.ashx", { "MemberID": getCookie("name"), "Goods": Goods }, function (data) {
-                console.log(data)
-            })
-
-        }
-
-    </script>
-    
-
 </asp:Content>

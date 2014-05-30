@@ -13,9 +13,8 @@ public class CreatOrderHandler : IHttpHandler {
         STTPEntities db = new STTPEntities();
 
         //==============================ProductOrder訂單狀況=============================================
-
-        string MemberID = context.Request.QueryString["MemberID"];
-        MemberID = "g80002";
+        string MemberID = "";
+        MemberID = context.Request.QueryString["MemberID"];
         ProductOrder Order = new ProductOrder();
 
         string LastOID = "00000"; //若資料庫無資料 則訂單編號起始為00000
@@ -45,9 +44,9 @@ public class CreatOrderHandler : IHttpHandler {
 
         //==============================GoodsOrderDetails訂單明細=============================================
 
-        
 
-        for (int i = 0; i < 3; i++)
+        int GoodsCount = int.Parse(context.Request.QueryString["GoodsCount"]);
+        for (int i = 0; i < GoodsCount; i++)
         {
             GoodsOrderDetails Goods = new GoodsOrderDetails();
             string GoodsID = context.Request.Params["Goods[" + i + "][GoodsID]"];
@@ -58,10 +57,10 @@ public class CreatOrderHandler : IHttpHandler {
 
 
             var x = db.StdntGoods.Find(Goods.GoodsID);
-            Goods.UnitPrice = x.Price;
+            Goods.UnitPrice = x.Price;  //向資料庫取得商品價格
 
-            Goods.BuyerID = "g80002";
-            Goods.SellerID = "g80001";     
+            Goods.BuyerID = MemberID;  
+            Goods.SellerID = x.SellerID;   //向資料庫取得賣家ID
             
             db.Entry(Goods).State = EntityState.Added; //方法二
             db.SaveChanges();
@@ -70,9 +69,8 @@ public class CreatOrderHandler : IHttpHandler {
 
         //==============================GoodsOrderDetails訂單明細=============================================
 
-
-        //context.Response.ContentType = "applicataion/json";
-        //context.Response.Write(JsonConvert.SerializeObject(Goods)); //一筆Product物件
+        context.Response.ContentType = "text/plain";
+        context.Response.Write(NewOrderID);
     }
  
     public bool IsReusable {

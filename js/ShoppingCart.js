@@ -155,9 +155,38 @@ $('#CartList').on('change', 'tr td input', function () {  //數量change時
 
 })
 
-
-
 //-------------------------購物車 End-------------------------------------------------------
+
+//-------------------------購物車結帳 Start-------------------------------------------------------
+$('#Checkout').click(function () {
+    if (getCookie("name") == null) {
+        alert("請先登入")
+    }
+    else {
+        Checkout();
+    }
+})
+
+function Checkout() {
+
+    var c = parseInt(getCookie("cookiecount")) //商品數量
+    var Goods = [];
+    for (var i = 0 ; i <= c ; i++) {
+        var GoodsID = $('#CartList tr:eq(' + i + ') td:eq(0) input').val() //因為Json回傳的清單順序不固定，所以抓隱藏欄位的productID 來對照
+        if (GoodsID != null) {         //如果欄位為空則不進行計算
+            var Quantity = $('#CartList tr:eq(' + i + ') td:eq(2) input').val()
+            Goods[i] = { "GoodsID": GoodsID, "Quantity": Quantity }  //將商品清單寫成陣列
+        }
+    }
+
+    //console.log(Goods)
+    $.getJSON("ashx/CreatOrderHandler.ashx", { "MemberID": getCookie("name"), "Goods": Goods, "GoodsCount": Goods.length }, function (data) {
+        location.href = ('GoodsOrderDetails.aspx?OrderID=' + data + '');
+    })
+
+}
+//-------------------------購物車結帳 End-------------------------------------------------------
+
 //-------------------------Cookie Start-------------------------------------------------------
 
 function setCookie(cname, cvalue, exdays) {
