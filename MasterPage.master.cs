@@ -65,12 +65,17 @@ public partial class bootsshop_MasterPage : System.Web.UI.MasterPage
         login.Visible = true;
     }
     //---------------------------登入的程式碼 End---------------------------------------------------------------------------------
-
-    //---------------------------全搜尋程式碼---------------------------
-    protected void srchAllBtn_Click(object sender, EventArgs e)  
+    protected void srchAllBtn_Click(object sender, EventArgs e)
     {
         string title = this.srchAllFld.Text;
         Server.Transfer("Search.aspx?title=" + title);
     }
 
+    //public String searchAllResult
+    //{
+    //    get 
+    //    {
+    //        return srchAllFld.Text;
+    //    }
+    //}
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,48 +9,61 @@ public partial class Search : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Label1.Text = PreviousPage.searchAllResult;
+        //if (Page.PreviousPage != null)
+        //{
+        //    if (PreviousPage.IsCrossPagePostBack)
+        //    {
+        //        TextBox SourceTextBox = (TextBox)Page.PreviousPage.FindControl("srchAllFld");
+        //        if (SourceTextBox != null)
+        //        {
+        //            Label1.Text = SourceTextBox.Text;
+        //        }
 
+        //    }
+        //}
         string title = Request.QueryString["title"].ToString();
 
-        using(STTPEntities db = new STTPEntities())
+        using (STTPEntities db = new STTPEntities())
         {
-
-            if (!string.IsNullOrWhiteSpace(title))
+            if (title != "")
             {
-                var query = from s in db.StdntGoodsView
+                var query = from s in db.StdntGoods
+                            from p in db.StdntGoodsPic
                             where s.GoodsName.ToLower().Contains(title)
-                            select new { s.GoodsName, s.Price, s.Quantity, s.SellerID, s.StartTime, s.SchoolName, s.Region, s.PictureID, s.Picture };
-                if (query.Count() >= 1)
-                {
-                    this.GridView1.DataSource = query.ToList();
-                    this.GridView1.DataBind();
-                }
-                else  //找不到關鍵字顯示警告訊息圖片
-                {
-                    string js = "$('#div_warning').append(\"<img src='images/warning1.jpg' style='display:block;margin:auto'>\")";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "", js, true);
-                }
+                            select new { s.GoodsName, s.SellerID, s.Price, s.Quantity, p.PictureID, p.Picture };
+                //var q = from s in db.StdntGoodsPic
+                //        where
+                //            (from s1 in db.StdntGoodsPic
+                //             group s1 by new
+                //             {
+                //                 s1.GoodsID
+                //             } into g
+                //             select new
+                //             {
+                //                 Column1 = (int?)g.Min(p => p.PictureID)
+                //             }).Contains(new { Column1 = (Int32?)s.PictureID })
+                //        select new
+                //        {
+                //            s.StdntGoods.GoodsName,
+                //            Price = (decimal?)s.StdntGoods.Price,
+                //            s.StdntGoods.Quantity,
+                //            s.Picture
+                //        };
+                this.GridView1.DataSource = query.ToList();
+                this.GridView1.DataBind();
+
+
+
             }
-            else  //沒有輸入或輸入空白顯示警告訊息圖片
+            else
             {
-                string js = "$('#div_warning').append(\"<img src='images/warning2.jpg' style='display:block;margin:auto'>\")";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "", js, true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "", "alert('請至少輸入一關鍵字！')", true);
             }
-        }        
+        }
     }
-
-    //protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)  //從SQL讀回網頁能正常顯示換行格式
-    //{
-    //    //在原始檔的asp:GridView控制項加：OnRowDataBound="GridView2_RowDataBound"
-    //    if (e.Row.RowType == DataControlRowType.DataRow)
-    //    {
-    //        e.Row.Cells[3].Text = e.Row.Cells[3].Text.Replace("\n", "<br />");
-    //    }
-
-    //}
-
-    //public override void VerifyRenderingInServerForm(Control control)
-    //{
-    //}
-
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+    }
+    
 }

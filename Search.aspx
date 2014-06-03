@@ -10,27 +10,15 @@
 </asp:Content>--%>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <br/>
-    <div id="div_warning" ></div>    
-
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="3" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
         <Columns>
             <asp:ImageField DataImageUrlField="PictureID" DataImageUrlFormatString="~/ashx/StdntGoodsImage.ashx?PictureID={0}" HeaderText="商品圖片">
-                <ControlStyle Width="150px" />
+                <ControlStyle Width="100px" />
             </asp:ImageField>
-            <asp:BoundField DataField="GoodsName" HeaderText="商品名稱" >
-            <ItemStyle Width="320px" />
-            </asp:BoundField>
+            <asp:BoundField DataField="GoodsName" HeaderText="商品名稱" />
             <asp:BoundField DataField="SellerID" HeaderText="賣家帳號" />
-            <asp:BoundField DataField="SchoolName" HeaderText="學校名稱">
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Price" HeaderText="商品價錢" >
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Quantity" HeaderText="數量" >
-            <ItemStyle HorizontalAlign="Center" />
-            </asp:BoundField>
-            <asp:BoundField DataField="StartTime" DataFormatString="{0:yyyy/MM/dd}" HeaderText="刊登時間" />
+            <asp:BoundField DataField="Price" HeaderText="商品價錢" />
+            <asp:BoundField DataField="Quantity" HeaderText="數量" />
         </Columns>
         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
         <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -41,14 +29,8 @@
         <SortedAscendingHeaderStyle BackColor="#B95C30" />
         <SortedDescendingCellStyle BackColor="#F1E5CE" />
         <SortedDescendingHeaderStyle BackColor="#93451F" />
-    </asp:GridView>    <script src="js/jquery-1.4.1.min.js"></script>
-    <script src="js/jquery-1.4.1.min.js"></script>
-    <script>
-        $(function () {
-            //$('#div_warning').append("<img src='images/warning1.jpg' style='display:block;margin:auto'>");
-        })        
-    </script>
-    </asp:Content>
+    </asp:GridView>    
+</asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="scriptPlaceHolder" Runat="Server">
 </asp:Content>
 

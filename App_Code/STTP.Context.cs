@@ -39,4 +39,5 @@ public partial class STTPEntities : DbContext
     public DbSet<GoodsOrderDetails> GoodsOrderDetails { get; set; }
     public DbSet<ProductOrder> ProductOrder { get; set; }
     public DbSet<StdntGoods> StdntGoods { get; set; }
+    public DbSet<AdManagement> AdManagement { get; set; }
 }

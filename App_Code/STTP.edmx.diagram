@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3240f1917825495ebb5a602f122d30f1" Name="圖表1" ZoomLevel="111">
+      <Diagram DiagramId="3240f1917825495ebb5a602f122d30f1" Name="圖表1" ZoomLevel="18">
         <EntityTypeShape EntityType="STTPModel.MemberData" Width="1.5" PointX="3" PointY="6.625" />
         <EntityTypeShape EntityType="STTPModel.SchoolData" Width="1.5" PointX="0.75" PointY="7.5" />
         <EntityTypeShape EntityType="STTPModel.ShopData" Width="1.5" PointX="8" PointY="11.625" />
@@ -31,6 +31,7 @@
         <AssociationConnector Association="STTPModel.FK_StdntGoods_MemberData1" />
         <AssociationConnector Association="STTPModel.FK_StdntGoods_StdntGoodsSubCategory" />
         <AssociationConnector Association="STTPModel.FK_StdntGoodsPic_StdntGoods" />
+        <EntityTypeShape EntityType="STTPModel.AdManagement" Width="1.5" PointX="13.25" PointY="12.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

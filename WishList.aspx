@@ -240,7 +240,7 @@
     <div class="row">
       <div class="span2">
         <a href="#" class="thumbnail">
-            <img src="/website4/images/iwant.png" alt=""/> 
+            <img src="<%=Page.ResolveUrl("~")%>images/iwant.png" alt=""/> 
         </a>
       </div>
       <div class="span5 keyword"  > 

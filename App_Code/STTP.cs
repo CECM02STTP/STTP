@@ -10,6 +10,15 @@
 using System;
 using System.Collections.Generic;
 
+public partial class AdManagement
+{
+    public int AdID { get; set; }
+    public string GoodsName { get; set; }
+    public Nullable<System.DateTime> StratADTime { get; set; }
+    public Nullable<System.DateTime> FinishADTime { get; set; }
+    public Nullable<int> ADfee { get; set; }
+}
+
 public partial class GoodsOrderDetails
 {
     public string OrderID { get; set; }
@@ -161,11 +170,6 @@ public partial class ShopGoodsSubCategory
 
 public partial class StdntGoods
 {
-    public StdntGoods()
-    {
-        this.StdntGoodsPic = new HashSet<StdntGoodsPic>();
-    }
-
     public int GoodsID { get; set; }
     public string GoodsName { get; set; }
     public string SubCategoryID { get; set; }
@@ -184,10 +188,6 @@ public partial class StdntGoods
     public bool IsExchange { get; set; }
     public bool SecondHand { get; set; }
     public bool Report { get; set; }
-
-    public virtual MemberData MemberData { get; set; }
-    public virtual StdntGoodsSubCategory StdntGoodsSubCategory { get; set; }
-    public virtual ICollection<StdntGoodsPic> StdntGoodsPic { get; set; }
 }
 
 public partial class StdntGoodsCategory

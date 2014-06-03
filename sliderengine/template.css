@@ -1,0 +1,64 @@
+.hiSlider-SliderApp .elasticThumbContainer {
+  position: relative;
+  z-index: 2;
+}
+.hiSlider-SliderApp .elasticThumbContainer .elasticThumbCover {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.hiSlider-SliderApp .elasticThumbContainer .buttons {
+  height: 100%;
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  left: 0px;
+  top: 0px;
+}
+.hiSlider-SliderApp .elasticThumbContainer .buttons:after {
+  content: ".";
+  height: 0;
+  clear:both;
+  display: block;
+  visibility: hidden;
+}
+.hiSlider-SliderApp .elasticThumbContainer .buttons li {
+  cursor: pointer;
+  position: absolute;
+}
+.hiSlider-SliderApp .elasticThumbContainer .buttons .current~li:hover {
+  -webkit-box-shadow: 1px 1px 3px #292929;
+  -moz-box-shadow: 1px 1px 3px #292929;
+  -ms-box-shadow: 1px 1px 3px #292929;
+  -o-box-shadow: 1px 1px 3px #292929;
+  box-shadow: 1px 1px 3px #292929
+}
+.hiSlider-SliderApp .elasticThumbContainer .buttons .current {
+  float: none !important;
+  z-index: 999;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  opacity: 0.8;
+  filter: blur(opacity=80);
+}
+.hiSlider-SliderApp .elasticThumbContainer .buttons div {
+  display: block;
+  text-align: center;
+}
+.hiSlider-SliderApp .elasticThumbContainer .buttons div span {
+  display: block;
+}
+.hiSlider-SliderApp .elasticThumbContainer .thumb {
+  position: absolute;
+  min-height: 50px;
+  cursor: pointer;
+  z-index: 10;
+}
+.hiSlider-SliderApp .elasticThumbContainer .thumb img {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.3)));
+}

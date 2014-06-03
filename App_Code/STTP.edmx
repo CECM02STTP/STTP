@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="STTPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="STTPModelStoreContainer">
+          <EntitySet Name="AdManagement" EntityType="STTPModel.Store.AdManagement" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="GoodsOrderDetails" EntityType="STTPModel.Store.GoodsOrderDetails" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MemberData" EntityType="STTPModel.Store.MemberData" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductOrder" EntityType="STTPModel.Store.ProductOrder" store:Type="Tables" Schema="dbo" />
@@ -73,6 +74,16 @@
             <End Role="StdntGoodsSubCategory" EntitySet="StdntGoodsSubCategory" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AdManagement">
+          <Key>
+            <PropertyRef Name="AdID" />
+          </Key>
+          <Property Name="AdID" Type="int" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" />
+          <Property Name="StratADTime" Type="datetime" />
+          <Property Name="FinishADTime" Type="datetime" />
+          <Property Name="ADfee" Type="int" />
+        </EntityType>
         <EntityType Name="GoodsOrderDetails">
           <Key>
             <PropertyRef Name="OrderID" />
@@ -402,6 +413,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--產生期間發現錯誤:
+      警告 6013: 資料表/檢視 'STTP.dbo.AdCategory' 未定義主索引鍵，也無法推斷有效的主索引鍵。此資料表/檢視已被排除。如果要使用此實體，您必須檢閱您的結構描述，加入正確的索引鍵，並將它取消註解。
+      
+      <EntityType Name="AdCategory">
+        <Property Name="AdID" Type="int" />
+        <Property Name="AdName" Type="nvarchar" MaxLength="50" />
+      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -463,6 +481,7 @@
             <End Role="StdntGoods" EntitySet="StdntGoods" />
             <End Role="StdntGoodsPic" EntitySet="StdntGoodsPic" />
           </AssociationSet>
+          <EntitySet Name="AdManagement" EntityType="STTPModel.AdManagement" />
         </EntityContainer>
         <EntityType Name="MemberData">
           <Key>
@@ -817,6 +836,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="AdManagement">
+          <Key>
+            <PropertyRef Name="AdID" />
+          </Key>
+          <Property Type="Int32" Name="AdID" Nullable="false" />
+          <Property Type="String" Name="GoodsName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StratADTime" Precision="3" />
+          <Property Type="DateTime" Name="FinishADTime" Precision="3" />
+          <Property Type="Int32" Name="ADfee" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1044,6 +1073,17 @@
                 <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
                 <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
                 <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdManagement">
+            <EntityTypeMapping TypeName="STTPModel.AdManagement">
+              <MappingFragment StoreEntitySet="AdManagement">
+                <ScalarProperty Name="ADfee" ColumnName="ADfee" />
+                <ScalarProperty Name="FinishADTime" ColumnName="FinishADTime" />
+                <ScalarProperty Name="StratADTime" ColumnName="StratADTime" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="AdID" ColumnName="AdID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
