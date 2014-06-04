@@ -51,7 +51,7 @@
             "data": { "OrderID": OrderID },//要傳送到server的資料
             "success": function (data) {//Server回傳的結果
                 $.each(data, function () {
-                    var td1 = $("<td style='width: 100px'></td>").append("<img src='/STTPshop/ashx/StdntGoodsImage.ashx?PictureID=" + this.GoodsID + "'/>").append("<input type='hidden' value='" + this.GoodsID + "'/>")
+                    var td1 = $("<td style='width: 100px'></td>").append("<img src='ashx/StdntGoodsImage.ashx?PictureID=" + this.GoodsID + "'/>").append("<input type='hidden' value='" + this.GoodsID + "'/>")
                     var td2 = $('<td></td>').append("<p>【" + this.GoodsName + "】商品編號：" + this.GoodsID + "</p>")
                     var td3 = $('<td></td>').append(this.Quantity) //數量
                     var td4 = $('<td></td>').append("$NT" + this.UnitPrice) //單價

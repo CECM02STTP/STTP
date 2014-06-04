@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "STTP", ".", "{84160591-F5D0-4521-89B9-F3C92CB199FD}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "STTPshop", ".", "{84160591-F5D0-4521-89B9-F3C92CB199FD}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/bootsshop"
-		Debug.AspNetCompiler.PhysicalPath = "..\STTP\"
+		Debug.AspNetCompiler.PhysicalPath = "..\STTPshop\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\bootsshop\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/bootsshop"
-		Release.AspNetCompiler.PhysicalPath = "..\STTP\"
+		Release.AspNetCompiler.PhysicalPath = "..\STTPshop\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\bootsshop\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"

@@ -1,3 +1,0 @@
-http://renjin.blogspot.tw/2008/03/large-file-uploads-in-aspnet.html
-http://williambooks2.blogspot.tw/2013/12/aspnet-c-fileupload.html
-http://stackoverflow.com/questions/3853767/maximum-request-length-exceeded

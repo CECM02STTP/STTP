@@ -47,7 +47,7 @@ for (var i = 0 ; i < Cookcount ; i++) {  // 全域變數已+1，因此 = 拿掉
             "data": { "GoodsID": productID },//要傳送到server的資料
             "success": function (data) {//Server回傳的結果
                 //console.log(data)
-                var td1 = $("<td style='width: 100px'></td>").append("<img src='/STTPshop/ashx/StdntGoodsImage.ashx?PictureID=" + data.GoodsID + "'/>").append("<input type='hidden' value='" + data.GoodsID + "'/>")
+                var td1 = $("<td style='width: 100px'></td>").append("<img src='ashx/StdntGoodsImage.ashx?PictureID=" + data.GoodsID + "'/>").append("<input type='hidden' value='" + data.GoodsID + "'/>")
                 var td2 = $('<td></td>').append("<p>【" + data.GoodsName + "】</p>").append(data.Description)
                 //移除+-按鈕
                 var countbox = "<div class='input-append'><input value='' class='span1' style='max-width: 34px' placeholder='1' size='16' type='text'><button class='btn btn-danger' type='button'><i class='icon-remove icon-white'></i></button></div>"
